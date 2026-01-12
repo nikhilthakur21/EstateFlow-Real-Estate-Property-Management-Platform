@@ -55,7 +55,7 @@ const Login = () => {
         position: "top-right",
       });
 
-      // 2. Navigate based on Role (MUST be inside the 'if' block)
+      // 2. Navigate based on Role 
       if (userFound.Role === "Admin") {
         navigate("/admin-dashboard");
       } else {
@@ -71,12 +71,12 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4 mt-[70px]">
-      {/* Main Card - Matches Sign Up dimensions */}
+      
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-        {/* Header Section */}
+        
         <div
           className=" p-8 text-center border-b border-slate-100"
-          style={{ backgroundColor: "#005CA8" }}
+          style={{ backgroundColor: "#121212" }}
         >
           <div className="flex justify-center mb-3">
             <img
@@ -94,7 +94,7 @@ const Login = () => {
         {/* Form Section */}
         <div className="p-8">
           <form className="space-y-6" onSubmit={handleLogin}>
-            {/* Email Address */}
+            
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Email Address
@@ -149,7 +149,7 @@ const Login = () => {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white 
+              className="w-full bg-[#121212] hover:bg-gray-500 text-white 
               font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 group"
             >
               Sign In

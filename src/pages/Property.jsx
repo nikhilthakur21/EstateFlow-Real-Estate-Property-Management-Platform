@@ -14,11 +14,12 @@ import {
 } from "lucide-react";
 const Property = () => {
   const scrollRef = useRef(null);
-  // 2. Function to handle the scroll
+  
+
   const scrollNext = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 380, // Card width (360) + gap (20 approx)
+        left: 380, 
         behavior: "smooth",
       });
     }
@@ -32,12 +33,12 @@ const Property = () => {
   useEffect(() => {
     const getProperties = async () => {
       try {
-        // Replace with your actual MockAPI URL
+       
         const response = await axios.get(
           "https://695ea1592556fd22f678fa68.mockapi.io/PropertySection"
         );
 
-        // Axios automatically parses JSON, so we just use response.data
+        
         setProperties(response.data);
       } catch (err) {
         console.error("Error fetching data with axios:", err);
@@ -50,7 +51,7 @@ const Property = () => {
   useEffect(() => {
     const fetchDwellings = async () => {
       try {
-        // Updated URL for your specific API endpoint
+        
         const response2 = await axios.get(
           "https://695ea1592556fd22f678fa68.mockapi.io/EstateGallery"
         );
@@ -103,21 +104,21 @@ const Property = () => {
       <section className="mt-5 px-4">
         <hr className="text-gray-100" />
         <div className="flex w-full  h-[80vh] overflow-hidden mt-4">
-          {/* 70% SCROLLABLE SIDE - Added 'no-scrollbar' here */}
+          {/* 70% SCROLLABLE SIDE */}
           <div className="w-full md:w-[70%] h-full overflow-y-auto no-scrollbar  p-4 bg-white">
             <h1 className="text-[#091e42] text-3xl font-bold tracking-tight md:text-3xl text-xl">
               Apartments, Villas and more
             </h1>
             <p className="text-slate-500 text-lg">in Pune </p>
             <div className="flex flex-col gap-6 mt-5">
-              {/* Your Residential Land Card */}
+              
 
               <div className=" gap-3 flex flex-row  overflow-x-auto no-scrollbar pb-4">
                 {properties.map((item) => (
-                  /* The key must be on this outermost div */
+                  
                   <div
                     key={item.id}
-                    className="w-full max-w-[257px] aspect-[257/341] rounded-2xl overflow-hidden flex flex-col shadow-sm shrink-0"
+                    className="w-full max-w-[257px] aspect-[257/341] rounded-2xl  overflow-hidden flex flex-col shadow-sm shrink-0"
                     style={{ backgroundColor: item.color }}
                   >
                     <div className="pt-10 px-6 pb-6">
@@ -128,7 +129,7 @@ const Property = () => {
                         {item.count} Properties
                       </p>
                     </div>
-                    <div className="mt-auto w-full h-[60%]">
+                    <div className="mt-auto w-full h-[50%] mt-[-1]">
                       <img
                         src={item.imageUrl}
                         className="w-full h-full object-cover"
@@ -162,7 +163,7 @@ const Property = () => {
                 </button>
 
                 <div className="w-full py-3">
-                  {/* 3. Attach the Ref to the container */}
+                  
                   <div
                     ref={scrollRef}
                     className="flex flex-row gap-6 overflow-x-auto no-scrollbar px-4 md:px-10 pb-10 snap-x scroll-smooth"
@@ -172,7 +173,7 @@ const Property = () => {
                         key={unit.id}
                         className="w-[360px] h-[380px] shrink-0 snap-start bg-white rounded-[24px] shadow-xl overflow-hidden font-sans flex flex-col group relative"
                       >
-                        {/* Image Section */}
+                        
                         <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
                           <img
                             src={unit.displayImage}
@@ -193,7 +194,7 @@ const Property = () => {
                           </div>
                         </div>
 
-                        {/* Content Section */}
+                        
                         <div className="relative flex-1 px-7 pt-12 bg-white">
                           <div className="absolute -top-12 left-7 w-24 h-24 bg-white rounded-full p-1.5 shadow-lg border border-gray-50 flex items-center justify-center z-20">
                             <div className="flex flex-col items-center text-center px-1">
@@ -263,7 +264,7 @@ const Property = () => {
                 </div>
               </section>
             </section>
-            <hr className="text-gray-200 mt-5" />
+            
           </div>
 
           {/* 30% SIDEBAR - The 'hidden' class removes the entire element from the DOM flow */}
@@ -278,7 +279,7 @@ const Property = () => {
                   <div className="w-2 h-2 rounded-full bg-[#b0169b] animate-pulse"></div>
                 </div>
 
-                {/* Main Grid - 2x2 Style to save vertical space */}
+                
                 <div className="grid grid-cols-2 gap-3 mt-2">
                   {/* IT Hub */}
                   <div className="bg-white/5 p-3 rounded-2xl border border-white/5 flex flex-col gap-2">
@@ -296,7 +297,7 @@ const Property = () => {
                     </span>
                   </div>
 
-                  {/* Investment - Spans 2 columns to fill the bottom area */}
+                  
                   <div className="col-span-2 bg-[#b0169b]/10 p-3 rounded-2xl border border-[#b0169b]/20 flex items-center gap-3">
                     <TrendingUp size={18} className="text-[#b0169b]" />
                     <div>

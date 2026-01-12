@@ -54,30 +54,24 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4 mt-[70px]">
-      {/* Main Card - Responsive Width (Mobile: Full, Desktop: Fixed) */}
+      
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-        {/* Header Section */}
+       
         <div
           className=" p-8 text-center border-b border-slate-100"
-          style={{ backgroundColor: "#005CA8" }}
+          style={{ backgroundColor: "#121212" }}
         >
-          <div className="flex justify-center mb-3">
-            <img
-              src={logo}
-              alt="Estate Flow Logo"
-              className="h-12 w-auto object-contain"
-            />
-          </div>
+         
           <h2 className="text-2xl font-bold text-white">Join Estate Flow</h2>
           <p className="text-sm text-slate-300 mt-1">
             Create your account to start your journey
           </p>
         </div>
 
-        {/* Form Section (Visual Only) */}
+        
         <div className="p-8">
           <form className="space-y-5" onSubmit={(e) => subHandler(e)}>
-            {/* Full Name */}
+            
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Full Name
@@ -98,7 +92,7 @@ const SignUp = () => {
               </div>
             </div>
 
-            {/* Email Address */}
+            
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Email Address
@@ -119,7 +113,7 @@ const SignUp = () => {
               </div>
             </div>
 
-            {/* Mobile Number */}
+            
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Mobile Number
@@ -189,7 +183,7 @@ const SignUp = () => {
             {/* Main Action Button */}
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all 
+              className="w-full bg-[#121212] hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all 
                           duration-200 flex items-center justify-center gap-2 group"  
             >
               Create Account

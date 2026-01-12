@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav>
         <div
           className="w-full flex fixed top-0 left-0 right-0 z-50 border-b-2 border-white shadow-lg"
-          style={{ backgroundColor: "#005CA8", height: "70px" }}
+          style={{ backgroundColor: "#121212", height: "70px" }}
         >
           <div className=" w-[400px] flex items-center p-4">
             <img src={logo} alt="" className="w-[180px]" />
@@ -27,11 +27,11 @@ const Navbar = () => {
 
           <div className=" w-[60%] flex gap-5 justify-end items-center ">
             <NavLink
-              to={"/Home"}
+              to={"/"}
               className="text-base text-white flex items-center gap-1  hover:scale-105 transition-transform duration-300"
             >
               <Home size={20} />{" "}
-              <span className="hidden md:block lg:block text-xs font-bold uppercase tracking-widest">
+              <span className="hidden md:block lg:block text-xs font-bold uppercase tracking-widest ">
                 Home
               </span>
             </NavLink>
@@ -58,7 +58,7 @@ const Navbar = () => {
 
             <div>
               <div className="relative inline-block text-left">
-                {/* The Trigger Button */}
+                
                 <button
                   onClick={() =>setIsOpen(!isOpen)}
                   className="focus:outline-none flex items-center"
@@ -66,16 +66,16 @@ const Navbar = () => {
                   <i className="fa-solid fa-bars text-white text-2xl me-4"></i>
                 </button>
 
-                {/* The Dropdown Menu */}
+                
                 {isOpen && (
                   <>
-                    {/* Overlay to close the menu when clicking outside */}
+                    
                     <div
                       className="fixed inset-0 z-10"
                       onClick={() => setIsOpen(false)}
                     ></div>
 
-                    {/* Menu Options */}
+                    
                     <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 z-20">
                       <NavLink
                         to="/Admin-dashboard"

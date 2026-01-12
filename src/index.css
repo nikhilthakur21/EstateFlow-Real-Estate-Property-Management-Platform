@@ -10,3 +10,7 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.Flat{
+    background-color:#F1F3F4;
+}

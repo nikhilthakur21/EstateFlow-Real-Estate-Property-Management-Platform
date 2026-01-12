@@ -10,8 +10,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Postproperty from "./pages/Postproperty";
 import Admindashboard from "./components/Admin-dashboard";
-import ProtectedRoute from "./components/ProtectedRoute"; // Import your guard
+import ProtectedRoute from "./components/ProtectedRoute"; 
 import Property from "./pages/Property";
+import Footer from "./components/Footer";
+import Flat from "./pages/Flat";
 
 const App = () => {
   return (
@@ -20,9 +22,10 @@ const App = () => {
         <Navbar />
         <Routes>
           {/* PUBLIC ROUTES: Everyone can see these */}
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Flat" element={<Flat />} />
           
 
           {/* USER & ADMIN ROUTES: Only logged-in people with these roles */}
@@ -36,7 +39,9 @@ const App = () => {
           <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}>
             <Route path="/Admin-dashboard" element={<Admindashboard />} />
           </Route>
+         
         </Routes>
+       <Footer/>
       </Router>
 
 
@@ -59,6 +64,7 @@ const App = () => {
         draggable
         pauseOnHover
         theme="colored"
+        style={{ marginTop: "60px" }} 
       />
     </>
   );

@@ -2,8 +2,13 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Property from "./Property";
 
+
 const Home = () => {
   const navigate = useNavigate();
+
+  
+
+ 
 
   const bhkCards = [
     {

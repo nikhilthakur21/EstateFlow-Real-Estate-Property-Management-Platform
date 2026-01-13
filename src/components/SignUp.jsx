@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
 
@@ -38,7 +39,11 @@ const SignUp = () => {
         Role: "User",
       });
 
-      alert('submitedd')
+      
+
+      toast.success(`Account Created SuccessFully..! ${login.FullName}`, {
+        position: "top-right",
+      });
 
       navigate('/Login');
       

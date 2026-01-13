@@ -9,11 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Postproperty from "./pages/Postproperty";
-import Admindashboard from "./components/Admin-dashboard";
+
 import ProtectedRoute from "./components/ProtectedRoute"; 
 import Property from "./pages/Property";
 import Footer from "./components/Footer";
 import Flat from "./pages/Flat";
+import Admindashboard from "./components/Admin/Admin-dashboard";
+import AddFlat from "./components/Admin/AddFlat";
 
 const App = () => {
   return (
@@ -38,10 +40,11 @@ const App = () => {
           {/* ADMIN ONLY ROUTES: Only Admins can enter */}
           <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}>
             <Route path="/Admin-dashboard" element={<Admindashboard />} />
+            <Route path="/AddFlat" element={<AddFlat/>}/>
           </Route>
          
         </Routes>
-       <Footer/>
+      
       </Router>
 
 

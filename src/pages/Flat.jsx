@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Heart, Smartphone, Download, CheckCircle, Boxes } from "lucide-react";
 import axios from "axios";
+import FluidSkeleton from "../components/FluidSkeleton";
 
 const Flat = () => {
+  const [loading, setLoading] = useState(true);
+    // For Loding Effect
+
   const [properties, setproperties] = useState([]);
 
   const fetchData = async () => {
     try {
+       setLoading(true);
       const res = await axios.get(
         "https://6960932fe7aa517cb79669e1.mockapi.io/FlatData"
       );
@@ -15,6 +20,9 @@ const Flat = () => {
       setproperties(res.data);
     } catch (err) {
       console.log(err);
+    }finally {
+      
+      setTimeout(() => setLoading(false), 400);
     }
   };
 
@@ -25,7 +33,7 @@ const Flat = () => {
   return (
     <section className=" Flat  ">
       <div className=" mt-[70px] pt-5  ">
-        <h2 className="text-[#0D2441] text-2xl font-bold  text-center">
+        <h2 className="text-[#0D2441] text-2xl font-bold  md:ms-14 ms-2  ">
           | Flats in Pune West for Sale
         </h2>
 
@@ -34,11 +42,10 @@ const Flat = () => {
                      transition-colors rounded-2xl duration-300 shadow-sm"
         >
           <div
-            className="Option  mx-auto bg-gray-900 w-full gap-5 border-slate-300  py-1 flex items-center justify-start p-10
-                      transition-colors rounded-full duration-300 shadow-sm "
+            className="Option mx-auto bg-gray-900 w-full gap-5 border-slate-300 py-1 flex flex-col md:flex-row items-center justify-center   md:p-0.3 transition-colors rounded-3xl md:rounded-full duration-300 shadow-sm "
           >
             <button
-              className="bg-slate-50 text-slate-600 px-10 py-1 hover:border-orange-100 cursor-pointer 
+              className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
                             rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
             >
               NEW LAUNCH{" "}
@@ -47,8 +54,8 @@ const Flat = () => {
               </span>
             </button>
             <button
-              className="bg-slate-50 text-slate-600 px-10 py-1 hover:border-orange-100 cursor-pointer 
-                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
+              className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
+                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out "
             >
               Price Low to High{" "}
               <span>
@@ -56,7 +63,7 @@ const Flat = () => {
               </span>
             </button>
             <button
-              className="bg-slate-50 text-slate-600 px-10 py-1 hover:border-orange-100 cursor-pointer 
+              className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
                             rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
             >
               Price High to Low{" "}
@@ -65,7 +72,7 @@ const Flat = () => {
               </span>
             </button>
             <button
-              className="bg-slate-50 text-slate-600 px-10 py-1 hover:border-orange-100 cursor-pointer 
+              className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
                             rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
             >
               Under construction
@@ -80,6 +87,10 @@ const Flat = () => {
       {/*************************************************************************************************************/}
 
       <div className="max-w-[1200px] mx-auto  px-4 py-10">
+        {loading ? (
+          <FluidSkeleton
+          />
+        ) :
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 justify-items-center w-full">
           {properties.map((property) => (
             <div
@@ -187,7 +198,7 @@ const Flat = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div>}
       </div>
     </section>
   );

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import FluidSkeleton from "../components/FluidSkeleton";
+
 import {
   Heart,
   ChevronRight,
@@ -12,7 +14,15 @@ import {
   Leaf,
   TrendingUp,
 } from "lucide-react";
+
+
+
 const Property = () => {
+
+   const [loading, setLoading] = useState(true);
+  // For Loding Effect
+
+ 
   const scrollRef = useRef(null);
   
 
@@ -33,7 +43,7 @@ const Property = () => {
   useEffect(() => {
     const getProperties = async () => {
       try {
-       
+       setLoading(true);
         const response = await axios.get(
           "https://695ea1592556fd22f678fa68.mockapi.io/PropertySection"
         );
@@ -42,7 +52,10 @@ const Property = () => {
         setProperties(response.data);
       } catch (err) {
         console.error("Error fetching data with axios:", err);
-      }
+      }finally {
+      
+      setTimeout(() => setLoading(false), 400);
+    }
     };
 
     getProperties();
@@ -51,14 +64,17 @@ const Property = () => {
   useEffect(() => {
     const fetchDwellings = async () => {
       try {
-        
+        setLoading(true);
         const response2 = await axios.get(
           "https://695ea1592556fd22f678fa68.mockapi.io/EstateGallery"
         );
         setDwellings(response2.data);
       } catch (err) {
         console.error("Error fetching dwelling data:", err);
-      }
+      }finally {
+      
+      setTimeout(() => setLoading(false), 400);
+    }
     };
 
     fetchDwellings();
@@ -101,6 +117,7 @@ const Property = () => {
 
   return (
     <>
+    
       <section className="mt-5 px-4">
         <hr className="text-gray-100" />
         <div className="flex w-full  h-[80vh] overflow-hidden mt-4">
@@ -112,6 +129,10 @@ const Property = () => {
             <p className="text-slate-500 text-lg">in Pune </p>
             <div className="flex flex-col gap-6 mt-5">
               
+              {loading ? (
+          <FluidSkeleton
+          />
+        ) :
 
               <div className=" gap-3 flex flex-row  overflow-x-auto no-scrollbar pb-4">
                 {properties.map((item) => (
@@ -138,7 +159,7 @@ const Property = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div>}
             </div>
             <hr className="text-gray-200 mt-5" />
 
@@ -161,6 +182,11 @@ const Property = () => {
                 >
                   <ChevronRight size={32} className="text-[#091e42]" />
                 </button>
+
+                {loading ? (
+          <FluidSkeleton
+          />
+        ) :
 
                 <div className="w-full py-3">
                   
@@ -223,7 +249,7 @@ const Property = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div>}
               </div>
             </section>
             <hr className="text-gray-200" />

@@ -15,21 +15,16 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-
-
 const Property = () => {
-
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   // For Loding Effect
 
- 
   const scrollRef = useRef(null);
-  
 
   const scrollNext = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 380, 
+        left: 380,
         behavior: "smooth",
       });
     }
@@ -43,19 +38,17 @@ const Property = () => {
   useEffect(() => {
     const getProperties = async () => {
       try {
-       setLoading(true);
+        setLoading(true);
         const response = await axios.get(
           "https://695ea1592556fd22f678fa68.mockapi.io/PropertySection"
         );
 
-        
         setProperties(response.data);
       } catch (err) {
         console.error("Error fetching data with axios:", err);
-      }finally {
-      
-      setTimeout(() => setLoading(false), 400);
-    }
+      } finally {
+        setTimeout(() => setLoading(false), 400);
+      }
     };
 
     getProperties();
@@ -71,10 +64,9 @@ const Property = () => {
         setDwellings(response2.data);
       } catch (err) {
         console.error("Error fetching dwelling data:", err);
-      }finally {
-      
-      setTimeout(() => setLoading(false), 400);
-    }
+      } finally {
+        setTimeout(() => setLoading(false), 400);
+      }
     };
 
     fetchDwellings();
@@ -117,7 +109,6 @@ const Property = () => {
 
   return (
     <>
-    
       <section className="mt-5 px-4">
         <hr className="text-gray-100" />
         <div className="flex w-full  h-[80vh] overflow-hidden mt-4">
@@ -128,38 +119,36 @@ const Property = () => {
             </h1>
             <p className="text-slate-500 text-lg">in Pune </p>
             <div className="flex flex-col gap-6 mt-5">
-              
               {loading ? (
-          <FluidSkeleton
-          />
-        ) :
-
-              <div className=" gap-3 flex flex-row  overflow-x-auto no-scrollbar pb-4">
-                {properties.map((item) => (
-                  
-                  <div
-                    key={item.id}
-                    className="w-full max-w-[257px] aspect-[257/341] rounded-2xl  overflow-hidden flex flex-col shadow-sm shrink-0"
-                    style={{ backgroundColor: item.color }}
-                  >
-                    <div className="pt-10 px-6 pb-6">
-                      <h2 className="text-[#3d516d] text-2xl font-bold leading-tight tracking-tight">
-                        {item.title}
-                      </h2>
-                      <p className="text-[#93a1b0] text-base mt-3 font-medium">
-                        {item.count} Properties
-                      </p>
+                <FluidSkeleton />
+              ) : (
+                <div className=" gap-3 flex flex-row  overflow-x-auto no-scrollbar pb-4 cursor-pointer">
+                  {properties.map((item) => (
+                    <div
+                      onClick={() => navigate("/Flat")}
+                      key={item.id}
+                      className="w-full max-w-[257px] aspect-[257/341] rounded-2xl  overflow-hidden flex flex-col shadow-sm shrink-0"
+                      style={{ backgroundColor: item.color }}
+                    >
+                      <div className="pt-10 px-6 pb-6">
+                        <h2 className="text-[#3d516d] text-2xl font-bold leading-tight tracking-tight">
+                          {item.title}
+                        </h2>
+                        <p className="text-[#93a1b0] text-base mt-3 font-medium">
+                          {item.count} Properties
+                        </p>
+                      </div>
+                      <div className="mt-auto w-full h-[50%] mt-[-1]">
+                        <img
+                          src={item.imageUrl}
+                          className="w-full h-full object-cover"
+                          alt={item.title}
+                        />
+                      </div>
                     </div>
-                    <div className="mt-auto w-full h-[50%] mt-[-1]">
-                      <img
-                        src={item.imageUrl}
-                        className="w-full h-full object-cover"
-                        alt={item.title}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>}
+                  ))}
+                </div>
+              )}
             </div>
             <hr className="text-gray-200 mt-5" />
 
@@ -184,72 +173,69 @@ const Property = () => {
                 </button>
 
                 {loading ? (
-          <FluidSkeleton
-          />
-        ) :
-
-                <div className="w-full py-3">
-                  
-                  <div
-                    ref={scrollRef}
-                    className="flex flex-row gap-6 overflow-x-auto no-scrollbar px-4 md:px-10 pb-10 snap-x scroll-smooth"
-                  >
-                    {dwellings.map((unit) => (
-                      <div
-                        key={unit.id}
-                        className="w-[360px] h-[380px] shrink-0 snap-start bg-white rounded-[24px] shadow-xl overflow-hidden font-sans flex flex-col group relative"
-                      >
-                        
-                        <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
-                          <img
-                            src={unit.displayImage}
-                            alt={unit.listingName}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          {unit.isFeatured && (
-                            <div className="absolute top-4 left-0 bg-[#b0169b] text-white text-[10px] font-bold px-3 py-1.5 rounded-r-sm z-10">
-                              Featured
-                            </div>
-                          )}
-                          <div className="absolute top-4 right-4 text-white drop-shadow-lg cursor-pointer hover:scale-110 transition-transform z-10">
-                            <Heart
-                              size={28}
-                              strokeWidth={2}
-                              className="hover:fill-red-500 hover:stroke-red-500 transition-colors"
+                  <FluidSkeleton />
+                ) : (
+                  <div className="w-full py-3">
+                    <div
+                      ref={scrollRef}
+                      className="flex flex-row gap-6 cursor-pointer overflow-x-auto no-scrollbar px-4 md:px-10 pb-10 snap-x scroll-smooth"
+                    >
+                      {dwellings.map((unit) => (
+                        <div
+                          onClick={() => navigate("/LuxuryPenthouses")}
+                          key={unit.id}
+                          className="w-[360px] h-[380px] shrink-0 snap-start bg-white rounded-[24px] shadow-xl overflow-hidden font-sans flex flex-col group relative"
+                        >
+                          <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
+                            <img
+                              src={unit.displayImage}
+                              alt={unit.listingName}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
-                          </div>
-                        </div>
-
-                        
-                        <div className="relative flex-1 px-7 pt-12 bg-white">
-                          <div className="absolute -top-12 left-7 w-24 h-24 bg-white rounded-full p-1.5 shadow-lg border border-gray-50 flex items-center justify-center z-20">
-                            <div className="flex flex-col items-center text-center px-1">
-                              <span className="text-[#2d5a27] text-[9px] font-bold tracking-widest leading-tight">
-                                {unit.brandCode}
-                              </span>
-                              <div className="w-10 h-[0.5px] bg-[#2d5a27] my-1 opacity-30"></div>
-                              <span className="text-[#2d5a27] text-[6px] font-medium tracking-tighter uppercase opacity-80">
-                                {unit.subText}
-                              </span>
+                            {unit.isFeatured && (
+                              <div className="absolute top-4 left-0 bg-[#b0169b] text-white text-[10px] font-bold px-3 py-1.5 rounded-r-sm z-10">
+                                Featured
+                              </div>
+                            )}
+                            <div className="absolute top-4 right-4 text-white drop-shadow-lg cursor-pointer hover:scale-110 transition-transform z-10">
+                              <Heart
+                                size={28}
+                                strokeWidth={2}
+                                className="hover:fill-red-500 hover:stroke-red-500 transition-colors"
+                              />
                             </div>
                           </div>
 
-                          <div className="flex flex-col space-y-1">
-                            <h3 className="text-[#0f2a4d] text-[22px] font-bold leading-tight group-hover:text-[#b0169b] transition-colors">
-                              {unit.listingName}
-                            </h3>
-                            <p className="text-gray-400 text-sm font-medium">
-                              {unit.layout}, {unit.area}
-                            </p>
-                            <div className="pt-4 text-[#0f2a4d] text-2xl font-extrabold">
-                              {unit.cost}
+                          <div className="relative flex-1 px-7 pt-12 bg-white">
+                            <div className="absolute -top-12 left-7 w-24 h-24 bg-white rounded-full p-1.5 shadow-lg border border-gray-50 flex items-center justify-center z-20">
+                              <div className="flex flex-col items-center text-center px-1">
+                                <span className="text-[#2d5a27] text-[9px] font-bold tracking-widest leading-tight">
+                                  {unit.brandCode}
+                                </span>
+                                <div className="w-10 h-[0.5px] bg-[#2d5a27] my-1 opacity-30"></div>
+                                <span className="text-[#2d5a27] text-[6px] font-medium tracking-tighter uppercase opacity-80">
+                                  {unit.subText}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-col space-y-1">
+                              <h3 className="text-[#0f2a4d] text-[22px] font-bold leading-tight group-hover:text-[#b0169b] transition-colors">
+                                {unit.listingName}
+                              </h3>
+                              <p className="text-gray-400 text-sm font-medium">
+                                {unit.layout}, {unit.area}
+                              </p>
+                              <div className="pt-4 text-[#0f2a4d] text-2xl font-extrabold">
+                                {unit.cost}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>}
+                )}
               </div>
             </section>
             <hr className="text-gray-200" />
@@ -290,7 +276,6 @@ const Property = () => {
                 </div>
               </section>
             </section>
-            
           </div>
 
           {/* 30% SIDEBAR - The 'hidden' class removes the entire element from the DOM flow */}
@@ -305,7 +290,6 @@ const Property = () => {
                   <div className="w-2 h-2 rounded-full bg-[#b0169b] animate-pulse"></div>
                 </div>
 
-                
                 <div className="grid grid-cols-2 gap-3 mt-2">
                   {/* IT Hub */}
                   <div className="bg-white/5 p-3 rounded-2xl border border-white/5 flex flex-col gap-2">
@@ -323,7 +307,6 @@ const Property = () => {
                     </span>
                   </div>
 
-                  
                   <div className="col-span-2 bg-[#b0169b]/10 p-3 rounded-2xl border border-[#b0169b]/20 flex items-center gap-3">
                     <TrendingUp size={18} className="text-[#b0169b]" />
                     <div>
@@ -350,10 +333,10 @@ const Property = () => {
                 </p>
               </div>
 
-              {/* Button */}
+              
               <button
-                className="w-full sm:w-auto rounded-lg bg-[#0078db] px-5 py-2.5 text-sm font-bold text-white 
-                                transition-all hover:bg-[#0066ba] active:scale-95"
+                className="w-full sm:w-auto rounded-lg bg-[#121212] px-5 py-2.5 text-sm font-bold text-white 
+                                transition-all hover:bg-gray-900 active:scale-95"
                 onClick={() => navigate("/Postproperty")}
               >
                 Post Property, It's FREE

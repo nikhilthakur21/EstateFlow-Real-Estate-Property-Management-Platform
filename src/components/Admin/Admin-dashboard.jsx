@@ -6,6 +6,7 @@ import AddBuilder from "./AddBuilder";
 import AddFeaturedProjects from "./AddFeaturedProjects";
 import ViewUsers from "./ViewUsers";
 import ViewFlat from "./ViewFlat";
+import ViewPostedProperty from "./ViewPostedProperty";
 
 const Admindashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -122,6 +123,25 @@ const Admindashboard = () => {
                     <span className="font-medium">View Users</span>
                   </button>
                 </li>
+                <li>
+                  <button
+                    onClick={() => setActiveTab("ViewPostedProperty")}
+                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 ${
+                      activeTab === "ViewPostedProperty"
+                        ? "bg-zinc-800 text-white shadow-md border border-zinc-700"
+                        : "text-zinc-500 hover:bg-zinc-800/40 hover:text-zinc-200"
+                    }`}
+                  >
+                    <i
+                      className={`fa-solid fa-user-group text-lg ${
+                        activeTab === "ViewPostedProperty"
+                          ? "text-orange-500"
+                          : ""
+                      }`}
+                    ></i>
+                    <span className="font-medium">View Posted Property</span>
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -134,6 +154,7 @@ const Admindashboard = () => {
                 {activeTab === "FeaturedProjects" && <AddFeaturedProjects />}
                 {activeTab === "ViewUsers" && <ViewUsers />}
                 {activeTab === "ViewFlat" && <ViewFlat />}
+                {activeTab === "ViewPostedProperty" && <ViewPostedProperty />}
               </div>
             </div>
           </div>

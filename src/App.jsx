@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import Flat from "./pages/Flat";
 import Admindashboard from "./components/Admin/Admin-dashboard";
 import AddFlat from "./components/Admin/AddFlat";
+import LuxuryPenthouses from "./pages/LuxuryPenthouses";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route element={<ProtectedRoute allowedRoles={["User", "Admin"]} />}>
             <Route path="/property" element={<Property />} />
             <Route path="/Postproperty" element={<Postproperty />} />
+            <Route path="/LuxuryPenthouses" element={<LuxuryPenthouses />} />
           </Route>
 
           {/* ADMIN ONLY ROUTES: Only Admins can enter */}
@@ -44,7 +46,7 @@ const App = () => {
           </Route>
          
         </Routes>
-      
+      <Footer/>
       </Router>
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Property from "./Property";
+import bgImage from '../assets/bg4.jpg';
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
         <div
           className="w-full border-b border-gray-300 shadow-lg bg-cover bg-center bg-no-repeat mt-[70px]
              aspect-video md:aspect-[21/9] lg:aspect-[4/1]  "
-          style={{ backgroundImage: `url('/src/assets/bg4.jpg')` }}
+          style={{ backgroundImage: `url(${bgImage})` }}
         ></div>
 
         <div
@@ -45,7 +46,7 @@ const Home = () => {
                         flex items-center justify-center gap-6 md:gap-3 px-6 py-10 bg-white -mt-13"
         >
           <NavLink
-            to={"/Home"}
+            to={"/LuxuryPenthouses"}
             className="text-[#0f2a4d] uppercase font-black text-base hover:text-[#b0169b] hover:scale-105 transition-all duration-300 ease-in-out inline-block"
           >
             Luxury Penthouses
@@ -109,7 +110,7 @@ const Home = () => {
             {bhkCards.map((card, index) => (
               <div
                 key={index}
-                onClick={() => navigate(card.path)}
+                onClick={() => navigate("/Flat")}
                 className="group cursor-pointer bg-white border  border-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:border-amber-200"
               >
                 {/* Font Awesome Icon */}

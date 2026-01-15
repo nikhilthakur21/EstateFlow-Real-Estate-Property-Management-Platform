@@ -3,8 +3,6 @@ import {
   Phone,
   Mail,
   Clock,
-  MessageSquare,
-  MapPin,
   Sparkles,
   Headphones,
   ShieldCheck,
@@ -125,7 +123,7 @@ const Contact = () => {
                 {/* Social Icons */}
                 <div className="flex items-center justify-center gap-3">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/"
                     className={`${circleStyle} bg-[#3b5998] hover:shadow-[0_0_20px_rgba(59,89,152,0.4)] scale-90`}
                   >
                     <i className="fa-brands fa-facebook-f text-base"></i>
@@ -133,7 +131,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="https://x.com/"
                     className={`${circleStyle} bg-black border border-zinc-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] scale-90`}
                   >
                     <i className="fa-brands fa-x-twitter text-base"></i>
@@ -141,7 +139,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/nikhil-thakur-9195282b7/"
                     className={`${circleStyle} bg-[#0077b5] hover:shadow-[0_0_20px_rgba(0,119,181,0.4)] scale-90`}
                   >
                     <i className="fa-brands fa-linkedin-in text-base"></i>
@@ -149,7 +147,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="https://www.youtube.com/embed/VKAKbueezMk?si=h8OP3mchF_iId1pP"
                     className={`${circleStyle} bg-[#ff0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] scale-90`}
                   >
                     <i className="fa-brands fa-youtube text-base"></i>
@@ -157,7 +155,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="https://www.instagram.com/nikhil_Thakur_Patil"
                     className={`${circleStyle} bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-[0_0_20px_rgba(238,42,123,0.4)] scale-90`}
                   >
                     <i className="fa-brands fa-instagram text-base"></i>

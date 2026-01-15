@@ -166,7 +166,7 @@ const Property = () => {
                 <button
                   onClick={scrollNext}
                   className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white hover:border-gray-500 p-3 
-          rounded-full shadow-2xl border border-gray-100 transition-all hover:scale-110 active:scale-95 hidden md:flex"
+                             rounded-full shadow-2xl border border-gray-100 transition-all hover:scale-110 active:scale-95 hidden md:flex"
                   aria-label="Scroll Right"
                 >
                   <ChevronRight size={32} className="text-[#091e42]" />
@@ -249,19 +249,16 @@ const Property = () => {
               <p className="text-slate-500 text-lg">In Pune</p>
 
               <section className="w-full flex justify-center py-5">
-                {/* Scrollable Row */}
                 <div className="flex flex-row gap-5 overflow-x-auto no-scrollbar pb-6 snap-x">
                   {developers.map((dev) => (
                     <div
                       key={dev.id}
                       className={`min-w-[380px] h-[120px] ${dev.color} border border-white rounded-2xl shadow-sm flex items-center px-6 shrink-0 snap-start transition-transform hover:scale-[1.02] cursor-pointer`}
                     >
-                      {/* Circular Icon Container */}
                       <div className="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center shrink-0 border border-gray-100">
                         {dev.icon}
                       </div>
 
-                      {/* Text Content */}
                       <div className="ml-6 flex flex-col">
                         <h3 className="text-[#0f2a4d] text-lg font-bold leading-tight">
                           {dev.name}
@@ -282,7 +279,6 @@ const Property = () => {
           <div className="hidden md:flex md:w-[30%] h-full bg-gray-50 rounded-lg p-4 flex-col ms-2">
             <div className="sticky top-0">
               <div className="w-full max-w-[350px] h-[200px] bg-[#120d1d] rounded-[24px] p-5 shadow-2xl border border-white/10 flex flex-col justify-between overflow-hidden group">
-                {/* Header */}
                 <div className="flex justify-between items-center">
                   <h3 className="text-white text-sm font-black tracking-widest uppercase opacity-80">
                     Why Pune<span className="text-[#b0169b]">?</span>
@@ -291,7 +287,6 @@ const Property = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  {/* IT Hub */}
                   <div className="bg-white/5 p-3 rounded-2xl border border-white/5 flex flex-col gap-2">
                     <Zap size={16} className="text-yellow-400" />
                     <span className="text-white text-[11px] font-bold leading-none">
@@ -299,7 +294,6 @@ const Property = () => {
                     </span>
                   </div>
 
-                  {/* Greenery */}
                   <div className="bg-white/5 p-3 rounded-2xl border border-white/5 flex flex-col gap-2">
                     <Leaf size={16} className="text-green-400" />
                     <span className="text-white text-[11px] font-bold leading-none">
@@ -323,7 +317,6 @@ const Property = () => {
             </div>
 
             <div className="relative w-full rounded-xl border border-gray-100 bg-gradient-to-br from-[#f8fdfb] via-[#f8fdfb] to-[#d6ede4] p-5 mt-8 shadow-sm">
-              {/* Text Content */}
               <div className="mb-6">
                 <h2 className="text-xl font-bold leading-tight text-[#1a2e44]">
                   Sell or rent faster at <br /> the right price!
@@ -333,7 +326,6 @@ const Property = () => {
                 </p>
               </div>
 
-              
               <button
                 className="w-full sm:w-auto rounded-lg bg-[#121212] px-5 py-2.5 text-sm font-bold text-white 
                                 transition-all hover:bg-gray-900 active:scale-95"
@@ -341,13 +333,6 @@ const Property = () => {
               >
                 Post Property, It's FREE
               </button>
-
-              {/* Circular Arrow Icon */}
-              <div className="absolute -bottom-4 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-[#e1f2ff] shadow-md border border-white/50">
-                <span className="text-xl font-bold text-[#0078db] leading-none mb-0.5">
-                  ↑
-                </span>
-              </div>
             </div>
           </div>
         </div>

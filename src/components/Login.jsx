@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { Mail, Lock, EyeOff, LogIn } from "lucide-react";
-import logo from "../assets/NLogo.png";
+import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
-
+import logo from "../assets/NLogo.png";
+import axios from "axios";
 import { Building2, CheckCircle2, ShieldCheck } from "lucide-react";
 
 const Login = () => {
@@ -61,7 +60,7 @@ const Login = () => {
       if (userFound.Role === "Admin") {
         navigate("/admin-dashboard");
       } else {
-        navigate("/Home");
+        navigate("/");
       }
     } else {
       // 3. Fail! Stay on the login page
@@ -73,16 +72,13 @@ const Login = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 lg:p-0 mt-[72px]">
-        {/* Main Container */}
+      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 lg:p-0 mt-[72px] mb-10">
         <div className="flex w-full max-w-6xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[600px]">
-          {/* LEFT SIDE: Brand Showcase (Hidden on Mobile) */}
+          {/* LEFT SIDE */}
           <div className="hidden lg:flex lg:w-1/2 relative bg-[#121212] p-12 flex-col justify-between">
-            {/* Background Decorative Element */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-600/10 rounded-full blur-[100px] -ml-32 -mb-32"></div>
 
-            {/* Logo/Name */}
             <div className="relative z-10 flex items-center gap-2  ">
               <div className="">
                 <div className="flex justify-center mb-3">
@@ -95,7 +91,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Main Visual Content */}
             <div className="relative z-10 md:mt-[-80px]">
               <h1 className="text-5xl font-extrabold text-white leading-tight">
                 Manage your <br />
@@ -107,13 +102,12 @@ const Login = () => {
               </h1>
             </div>
 
-            {/* Footer Text */}
             <p className="text-slate-500 text-sm font-medium relative z-10">
               © 2024 Estate Flow. The premier portal for luxury penthouses.
             </p>
           </div>
 
-          {/* RIGHT SIDE: Your Login Form */}
+          {/* RIGHT SIDE */}
           <div className="w-full lg:w-1/2 flex items-center justify-center  lg:p-16">
             <div className="w-full max-w-md  md:mt-[-70px]">
               <div className=" bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
@@ -136,7 +130,7 @@ const Login = () => {
                   </p>
                 </div>
 
-                {/* Form Section */}
+                {/* Form  */}
                 <div className="p-8">
                   <form className="space-y-6" onSubmit={handleLogin}>
                     <div>
@@ -158,18 +152,12 @@ const Login = () => {
                       </div>
                     </div>
 
-                    {/* Password */}
                     <div>
                       <div className="flex items-center justify-between mb-1">
                         <label className="block text-sm font-medium text-slate-700">
                           Password
                         </label>
-                        <a
-                          href="#"
-                          className="text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline"
-                        >
-                          Forgot Password?
-                        </a>
+                        
                       </div>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -182,7 +170,7 @@ const Login = () => {
                           value={ePass.password}
                           onChange={(e) => handler(e)}
                           className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-300 rounded-lg text-sm shadow-sm placeholder-slate-400 
-                  focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                                     focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 cursor-pointer hover:text-slate-600">
                           <EyeOff size={18} />
@@ -194,7 +182,7 @@ const Login = () => {
                     <button
                       type="submit"
                       className="w-full bg-[#121212] hover:bg-gray-500 text-white 
-              font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 group"
+                                  font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 group"
                     >
                       Sign In
                       <LogIn
@@ -204,10 +192,9 @@ const Login = () => {
                     </button>
                   </form>
 
-                  {/* Sign Up Option */}
                   <div className="mt-8 text-center">
                     <p className="text-sm text-slate-600">
-                      Don't have an account?{" "}
+                      Don't have an account?
                       <NavLink
                         to={"/SignUp"}
                         className="text-blue-600 font-semibold hover:text-blue-700 hover:underline transition-colors"
@@ -220,7 +207,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-        </div>{" "}
+        </div>
       </section>
     </>
   );

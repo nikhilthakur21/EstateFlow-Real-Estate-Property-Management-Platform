@@ -1,13 +1,14 @@
+import { Home, Headset, UserCircle } from "lucide-react";
 import logo from "../assets/NLogo.png";
 import { NavLink } from "react-router-dom";
-import { Home, Headset, UserCircle } from "lucide-react";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-
 const Navbar = () => {
+  // For Menu Bar
   const [isOpen, setIsOpen] = useState(false);
 
+  // LogOut Option
   const handleLogout = () => {
     localStorage.removeItem("user");
     toast.info("Logged out successfully");
@@ -22,9 +23,7 @@ const Navbar = () => {
         >
           <div className=" w-[400px] flex items-center p-4">
             <img src={logo} alt="" className="w-[180px] " />
-            
           </div>
-          
 
           <div className=" w-[10%] flex items-center gap-10 justify-end"></div>
 
@@ -77,37 +76,35 @@ const Navbar = () => {
 
                     <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-3 ring-black ring-opacity-5 z-20">
                       <NavLink
-                        to="/Admin-dashboard"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Admin Panal
-                      </NavLink>
-
-                      <NavLink
                         to="/Flat"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Flats
                       </NavLink>
-                      
+
                       <NavLink
-                        to="/Postproperty"
+                        to="/LuxuryPenthouses"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Luxury Penthouses
-
                       </NavLink>
                       <NavLink
-                        to="/Postproperty"
+                        to="/NewLaunches"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
-                        Residential Land
+                        New Launches
                       </NavLink>
                       <NavLink
                         to="/Postproperty"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Post Property
+                      </NavLink>
+                      <NavLink
+                        to="/Admin-dashboard"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Desk
                       </NavLink>
 
                       <hr className="my-1" />

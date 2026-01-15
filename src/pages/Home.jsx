@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Property from "./Property";
 import bgImage from "../assets/bg4.jpg";
@@ -15,6 +14,7 @@ import {
 const Home = () => {
   const navigate = useNavigate();
 
+  // For New Launched Card Data
   const newlyLaunched = [
     {
       id: 1,
@@ -51,6 +51,7 @@ const Home = () => {
     },
   ];
 
+  // For Bhk Card Data
   const bhkCards = [
     {
       title: "1 RK/1 BHK",
@@ -126,7 +127,7 @@ const Home = () => {
       <Property />
       {/*******************************************************************************************/}
 
-      {/************************************NEW LAUNCHED***************************************************/}
+      {/************************************NEW LAUNCHED*******************************************/}
 
       <section className="py-10 mt-10 px-6 bg-[#f8fafc] ">
         <div className="max-w-7xl mx-auto ">
@@ -202,11 +203,12 @@ const Home = () => {
                         ₹{item.price}
                       </p>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white 
+                    <div
+                      className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white 
                                     hover:bg-orange-500 transition-all cursor-pointer shadow-lg shadow-black/20"
-                                    onClick={() => navigate("/Postproperty")} >
+                      onClick={() => navigate("/Postproperty")}
+                    >
                       <ArrowRight size={18} />
-                      
                     </div>
                   </div>
                 </div>
@@ -215,22 +217,22 @@ const Home = () => {
           </div>
 
           <div className="flex justify-center">
-            <button className="flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold 
+            <button
+              className="flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold 
             hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-200 transition-all duration-300 group"
-            onClick={() => navigate("/Postproperty")}
+              onClick={() => navigate("/Postproperty")}
             >
               Explore All Properties
               <Sparkles
                 size={20}
                 className="text-white group-hover:rotate-12 transition-transform"
-                
               />
             </button>
           </div>
         </div>
       </section>
 
-      {/***************************************************************************************************/}
+      {/************************************* BHK CARD **************************************************/}
 
       <hr className="text-gray-200 mt-5" />
 
@@ -251,7 +253,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* 3x3 Style Grid (Laptop) | 2x2 Style Grid (Mobile) */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 ">
             {bhkCards.map((card, index) => (
               <div
@@ -259,7 +260,6 @@ const Home = () => {
                 onClick={() => navigate("/Flat")}
                 className="group cursor-pointer bg-white border  border-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:border-amber-200"
               >
-                {/* Font Awesome Icon */}
                 <div className="mb-6">
                   <i
                     className={`fa-solid ${card.icon} text-3xl text-blue-500 group-hover:text-amber-500 transition-colors duration-300`}
@@ -278,23 +278,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/*********************************************************************************************/}
+      {/****************************************** Pune Property Snapshot **********************************/}
 
       <hr className="text-gray-200 mt-5" />
 
       <section>
         <div className="w-full bg-[#FFFFFF] p-8">
-          {/* Title Section */}
           <div className="mb-8">
             <h2 className="text-[#091e42] text-2xl font-bold mb-1 tracking-tight">
               Pune Property Snapshot
             </h2>
-            <div className="w-14 h-1.5 bg-[#FFB800] rounded-full"></div>
+            <div className="w-14 h-1.5 bg-orange-500 rounded-full"></div>
           </div>
 
-          {/* Main Card Section */}
           <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300">
-            {/* Description Text */}
             <p className="text-gray-600 text-sm leading-relaxed mb-10 text-justify max-w-5xl">
               Pune, often referred to as the "Oxford of the East," stands as
               Maharashtra's vibrant cultural and IT hub. With its pleasant
@@ -309,12 +306,8 @@ const Home = () => {
               </span>
               , Pune's real estate market continues to show resilient growth and
               high demand for residential and commercial spaces.
-              <span className="text-red-600 font-bold cursor-pointer hover:underline ml-1">
-                Read more
-              </span>
             </p>
 
-            {/* Stats Grid: 2 columns mobile, 4 columns laptop */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
               {/* Item 1 */}
               <div className="relative pl-4 border-l-2 border-gray-100 hover:border-[#FFB800] transition-colors duration-300">
@@ -361,6 +354,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <hr className="text-gray-200 mt-5" />
       {/*********************************************************************************************/}
       <UpcomingProjects />
       {/*********************************************************************************************/}

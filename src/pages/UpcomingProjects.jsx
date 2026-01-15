@@ -54,7 +54,7 @@ const UpcomingProjects = () => {
           <div className="space-y-2 text-center md:text-left">
             <h4 className="text-2xl font-extrabold text-[#0f172a]">
               Interested in this project by <br />
-              <span className="text-blue-600">Godrej Properties?</span>
+              <span className="text-orange-600">Godrej Properties?</span>
             </h4>
             <p className="text-zinc-500 text-sm font-medium">
               Limited slots available for the priority site visit.

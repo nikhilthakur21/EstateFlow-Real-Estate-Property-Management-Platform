@@ -1,15 +1,16 @@
 import { User, Mail, Phone, Lock, EyeOff, ArrowRight } from "lucide-react";
-import logo from "../assets/NLogo.png";
+import { Building2, Users, TrendingUp, Sparkles } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Building2, Users, TrendingUp, Sparkles } from "lucide-react";
 
 const SignUp = () => {
+  // Navigate
   const navigate = useNavigate();
 
+  // Store Login Info
   const [login, setLogin] = useState({
     FullName: "",
     EmailAddress: "",
@@ -22,6 +23,7 @@ const SignUp = () => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
+  // On Submit Function
   const subHandler = async (e) => {
     try {
       e.preventDefault();
@@ -55,16 +57,13 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4   mt-[75px] lg:p-0">
-        {/* Main Container */}
+      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4   mt-[75px] lg:p-0 mb-10">
         <div className="flex w-full max-w-6xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[750px]">
-          {/* LEFT SIDE: Unique "Success Metric" Showcase */}
+          {/* LEFT SIDE */}
           <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] p-12 flex-col justify-between overflow-hidden">
-            {/* Animated Background Gradients */}
             <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px]"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
 
-            {/* Top Brand Tag */}
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
                 <Sparkles size={16} className="text-amber-400" />
@@ -74,14 +73,12 @@ const SignUp = () => {
               </div>
             </div>
 
-            {/* Main Content */}
             <div className="relative z-10 space-y-8">
               <h1 className="text-5xl font-black text-white leading-[1.1]">
                 Unlock <span className="text-blue-500">Premium</span> <br />
                 Property Tools.
               </h1>
 
-              {/* Unique Idea: Visual Mini-Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 border border-white/10 p-5 rounded-3xl backdrop-blur-sm hover:bg-white/10 transition-colors">
                   <Users className="text-blue-400 mb-3" size={28} />
@@ -105,16 +102,15 @@ const SignUp = () => {
               </p>
             </div>
 
-            {/* Floating Luxury Quote */}
             <div className="relative z-10 border-l-2 border-blue-500 pl-6 italic text-slate-300 text-sm">
               "The best investment on earth is earth itself."
             </div>
           </div>
 
-          {/* RIGHT SIDE: Blank Content Area for your Custom Card */}
+          {/* RIGHT SIDE */}
           <div className="w-full lg:w-1/2 flex items-center justify-center md:p-6 lg:p-12 bg-slate-50/50">
             <div className="w-full flex justify-center">
-              {/* --- PLACE YOUR SIGN-UP CARD CODE START --- */}
+              {/* SIGN-UP CARD */}
               <div className="w-full max-w-md">
                 <div className="w-full max-w-md bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden md:mt-[-30px]">
                   <div
@@ -191,7 +187,6 @@ const SignUp = () => {
                         </div>
                       </div>
 
-                      {/* Password */}
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1">
                           Password
@@ -209,14 +204,9 @@ const SignUp = () => {
                             onChange={(e) => handler(e)}
                             className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-300 rounded-lg text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                           />
-                          {/* Static Eye Icon */}
-                          <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 cursor-pointer hover:text-slate-600">
-                            <EyeOff size={18} />
-                          </div>
                         </div>
                       </div>
 
-                      {/* Confirm Password */}
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1">
                           Confirm Password
@@ -230,14 +220,9 @@ const SignUp = () => {
                             placeholder="Confirm your password"
                             className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-300 rounded-lg text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                           />
-                          {/* Static Eye Icon */}
-                          <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 cursor-pointer hover:text-slate-600">
-                            <EyeOff size={18} />
-                          </div>
                         </div>
                       </div>
 
-                      {/* Main Action Button */}
                       <button
                         type="submit"
                         className="w-full bg-[#121212] hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all 
@@ -266,7 +251,6 @@ const SignUp = () => {
                   </div>
                 </div>
               </div>
-              {/* --- PLACE YOUR SIGN-UP CARD CODE END --- */}
             </div>
           </div>
         </div>

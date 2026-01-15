@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const LuxuryPenthouses = () => {
+  // for Selection
   const [selectedPenthouse, setSelectedPenthouse] = useState(null);
 
   const penthouses = [
@@ -31,8 +32,7 @@ const LuxuryPenthouses = () => {
       location: "Kharadi",
       area: "3800 sqft",
       price: "₹ 6.2 Cr",
-      image:
-        "https://wallpaperset.com/w/full/9/d/7/176022.jpg",
+      image: "https://wallpaperset.com/w/full/9/d/7/176022.jpg",
       brand: "PANCHSHIL",
     },
     {
@@ -71,8 +71,7 @@ const LuxuryPenthouses = () => {
       location: "Viman Nagar",
       area: "4800 sqft",
       price: "₹ 9.1 Cr",
-      image:
-        "https://wallpaperset.com/w/full/9/2/2/175910.jpg",
+      image: "https://wallpaperset.com/w/full/9/2/2/175910.jpg",
       brand: "GODREJ",
     },
     {
@@ -106,28 +105,29 @@ const LuxuryPenthouses = () => {
       brand: "SHAPOORJI",
     },
     {
-  id: 11,
-  title: "The Glass Manor",
-  location: "Boat Club Road",
-  area: "6200 sqft",
-  price: "₹ 21.0 Cr",
-  image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-  brand: "TRUMP TOWERS",
-},
-{
-  id: 12,
-  title: "Aura Sky Mansion",
-  location: "Senapati Bapat Road",
-  area: "4800 sqft",
-  price: "₹ 11.2 Cr",
-  image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
-  brand: "AMANORA",
-}
+      id: 11,
+      title: "The Glass Manor",
+      location: "Boat Club Road",
+      area: "6200 sqft",
+      price: "₹ 21.0 Cr",
+      image:
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+      brand: "TRUMP TOWERS",
+    },
+    {
+      id: 12,
+      title: "Aura Sky Mansion",
+      location: "Senapati Bapat Road",
+      area: "4800 sqft",
+      price: "₹ 11.2 Cr",
+      image:
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+      brand: "AMANORA",
+    },
   ];
 
   const handleInterested = (p) => {
     setSelectedPenthouse(p);
-    
   };
 
   return (

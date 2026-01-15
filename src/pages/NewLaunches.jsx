@@ -1,6 +1,12 @@
-import React from 'react';
-import { TrendingUp, ShieldCheck, ArrowRight, MapPin, Layers, Sparkles } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import {
+  TrendingUp,
+  ShieldCheck,
+  ArrowRight,
+  MapPin,
+  Layers,
+  Sparkles,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const NewLaunches = () => {
   const navigate = useNavigate();
@@ -14,7 +20,8 @@ const NewLaunches = () => {
       type: "Premium Land",
       tag: "Limited Selection",
       growth: "10.3%",
-      image: "https://png.pngtree.com/thumb_back/fw800/background/20240601/pngtree-real-estate-luxury-building-sale-property-background-images-image_15851318.jpg",
+      image:
+        "https://png.pngtree.com/thumb_back/fw800/background/20240601/pngtree-real-estate-luxury-building-sale-property-background-images-image_15851318.jpg",
     },
     {
       id: 2,
@@ -24,7 +31,8 @@ const NewLaunches = () => {
       type: "2, 3 BHK Sky-Homes",
       tag: "Eco-Friendly",
       growth: "14.3%",
-      image: "https://urbtechindia.com/wp-content/uploads/2020/09/Amenities-for-Modern-Real-Estate-Projects.jpg",
+      image:
+        "https://urbtechindia.com/wp-content/uploads/2020/09/Amenities-for-Modern-Real-Estate-Projects.jpg",
     },
     {
       id: 3,
@@ -34,7 +42,8 @@ const NewLaunches = () => {
       type: "Luxury Penthouses",
       tag: "Best Seller",
       growth: "12.5%",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 4,
@@ -44,7 +53,8 @@ const NewLaunches = () => {
       type: "Golf View Condos",
       tag: "Luxury Living",
       growth: "11.2%",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 5,
@@ -54,7 +64,8 @@ const NewLaunches = () => {
       type: "Smart 1 & 2 BHK",
       tag: "Hot Property",
       growth: "15.8%",
-      image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 6,
@@ -64,22 +75,29 @@ const NewLaunches = () => {
       type: "Riverside Homes",
       tag: "New Launch",
       growth: "9.7%",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    }
+      image:
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    },
   ];
 
   return (
     <section className="py-24 px-6 bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto">
-        
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-8 h-[2px] bg-orange-500"></span>
-              <span className="text-orange-500 font-bold text-xs uppercase tracking-[0.2em]">The Premier Collection</span>
+              <span className="text-orange-500 font-bold text-xs uppercase tracking-[0.2em]">
+                The Premier Collection
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0f172a]">New Launches</h2>
-            <p className="text-slate-500 mt-3 text-lg">Experience the future of living with our latest curated property launches.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-[#0f172a]">
+              New Launches
+            </h2>
+            <p className="text-slate-500 mt-3 text-lg">
+              Experience the future of living with our latest curated property
+              launches.
+            </p>
           </div>
         </div>
 
@@ -87,16 +105,18 @@ const NewLaunches = () => {
           {newlyLaunched.map((item) => (
             <div key={item.id} className="group relative">
               <div className="relative h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                
+
                 <div className="absolute top-6 left-6 z-20">
                   <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
                     <ShieldCheck size={14} className="text-orange-500" />
-                    <span className="text-white text-[10px] font-bold tracking-widest uppercase">RERA Certified</span>
+                    <span className="text-white text-[10px] font-bold tracking-widest uppercase">
+                      RERA Certified
+                    </span>
                   </div>
                 </div>
 
@@ -128,11 +148,15 @@ const NewLaunches = () => {
 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                   <div>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pricing From</p>
-                    <p className="text-lg font-black text-[#0f172a]">₹{item.price}</p>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                      Pricing From
+                    </p>
+                    <p className="text-lg font-black text-[#0f172a]">
+                      ₹{item.price}
+                    </p>
                   </div>
-                  <button 
-                    onClick={() => navigate('/Contact')}
+                  <button
+                    onClick={() => navigate("/Contact")}
                     className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-orange-500 transition-all cursor-pointer shadow-lg shadow-black/20"
                   >
                     <ArrowRight size={18} />
@@ -142,7 +166,6 @@ const NewLaunches = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -2,13 +2,13 @@ import { Home, Headset, UserCircle } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import AddFlat from "./AddFlat";
 import React, { useState } from "react";
-import AddBuilder from "./AddBuilder";
 import AddFeaturedProjects from "./AddFeaturedProjects";
 import ViewUsers from "./ViewUsers";
 import ViewFlat from "./ViewFlat";
 import ViewPostedProperty from "./ViewPostedProperty";
 
 const Admindashboard = () => {
+  // For Seting Active Tab
   const [activeTab, setActiveTab] = useState("dashboard");
   return (
     <>
@@ -16,7 +16,7 @@ const Admindashboard = () => {
         <header>
           <div
             className="max-w-6xl mx-auto rounded-full py-2   flex  shadow-lg flex justify-start align-center items-center justify-center "
-            style={{  backgroundColor: "#1f273b76" }} 
+            style={{ backgroundColor: "#1f273b76" }}
           >
             <h1 className="text-white text-2xl font-bold ms-10 ">
               {" "}
@@ -31,24 +31,6 @@ const Admindashboard = () => {
           <div className="w-full  h-full flex mx-auto align-center justify-center gap-4 mt-2 p-2 flex flex-col md:flex-row">
             <div className="md:w-[25%] w-[100%] border-5 p-2 shadow-lg border-gray-500  bg-white shadow-lg  rounded-xl  ">
               <ul className="space-y-2">
-                <li>
-                  <button
-                    onClick={() => setActiveTab("AddBuilder")}
-                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 ${
-                      activeTab === "AddBuilder"
-                        ? "bg-zinc-800 text-white shadow-md border border-zinc-700"
-                        : "text-zinc-500 hover:bg-zinc-800/40 hover:text-zinc-200"
-                    }`}
-                  >
-                    <i
-                      className={`fa-solid fa-city text-lg ${
-                        activeTab === "AddBuilder" ? "text-orange-500" : ""
-                      }`}
-                    ></i>
-                    <span className="font-medium">Add Builder</span>
-                  </button>
-                </li>
-
                 <li>
                   <button
                     onClick={() => setActiveTab("addFlat")}
@@ -115,9 +97,7 @@ const Admindashboard = () => {
                   >
                     <i
                       className={`fa-solid fa-user-group text-lg ${
-                        activeTab === "ViewUsers"
-                          ? "text-orange-500"
-                          : ""
+                        activeTab === "ViewUsers" ? "text-orange-500" : ""
                       }`}
                     ></i>
                     <span className="font-medium">View Users</span>
@@ -147,10 +127,12 @@ const Admindashboard = () => {
 
             {/**********************************************************************************************/}
 
-            <div className="md:w-[85%] w-[100%]   p-5 shadow-lg  rounded-xl" style={{  backgroundColor: "#1f273b76" }} >
+            <div
+              className="md:w-[85%] w-[100%]   p-5 shadow-lg  rounded-xl"
+              style={{ backgroundColor: "#1f273b76" }}
+            >
               <div className="text-white">
                 {activeTab === "addFlat" && <AddFlat />}
-                {activeTab === "AddBuilder" && <AddBuilder />}
                 {activeTab === "FeaturedProjects" && <AddFeaturedProjects />}
                 {activeTab === "ViewUsers" && <ViewUsers />}
                 {activeTab === "ViewFlat" && <ViewFlat />}

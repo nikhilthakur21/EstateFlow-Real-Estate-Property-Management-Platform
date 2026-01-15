@@ -11,10 +11,9 @@ const Footer = () => {
     "text-slate-300 hover:text-white transition-colors duration-200 text-sm  block";
   return (
     <>
-      <footer className="bg-[#0a0a0a] border-t border-zinc-800 pt-16 pb-8 mt-10">
+      <footer className="bg-[#0a0a0a] border-t border-zinc-800 pt-16 pb-8 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            {/* 1. Brand Identity */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
@@ -31,56 +30,100 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* 2. Quick Navigation (My New Idea: The "Grid Flow") */}
             <div>
               <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">
                 Navigation
               </h4>
               <ul className="grid grid-cols-1 gap-3">
-                {[
-                  "Browse Properties",
-                  "Featured Listings",
-                  "Market Insights",
-                  "Agent Dashboard",
-                ].map((item) => (
-                  <li key={item}>
-                    <NavLink
-                      to={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2"
-                    >
-                      <span className="w-1 h-1 bg-zinc-700 rounded-full"></span>
-                      {item}
-                    </NavLink>
-                  </li>
-                ))}
+                <li>
+                  <NavLink
+                    to="/"
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Browse Properties
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/NewLaunches"
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Featured Listings
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/Postproperty"
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Post Propety
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/Contact"
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Support & Help
+                  </NavLink>
+                </li>
               </ul>
             </div>
 
-            {/* 3. Support & Trust */}
             <div>
               <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">
                 Support
               </h4>
               <ul className="space-y-3">
-                {[
-                  "Help Center",
-                  "Pricing Plans",
-                  "Privacy Policy",
-                  "Careers",
-                ].map((item) => (
-                  <li key={item}>
-                    <NavLink
-                      to={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="text-zinc-400 hover:text-white text-sm transition-colors"
-                    >
-                      {item}
-                    </NavLink>
-                  </li>
-                ))}
+                <li>
+                  <NavLink
+                    to="/Contact"
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Help Center
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to=""
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Pricing Plans
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to=""
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Privacy Policy
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to=""
+                    className="text-zinc-400 hover:text-orange-500 text-sm transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-zinc-700 rounded-full group-hover:bg-orange-500 transition-colors"></span>
+                    Careers
+                  </NavLink>
+                </li>
               </ul>
             </div>
 
-            {/* 4. Newsletter (Added Value) */}
             <div className="space-y-4">
               <h4 className="text-white font-bold text-sm uppercase tracking-widest">
                 Stay Updated
@@ -101,52 +144,47 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* BOTTOM BAR: Your Social Icons Integrated */}
+          {/* BOTTOM BAR */}
           <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <h6 className="text-zinc-500 text-xs font-medium order-2 md:order-1">
               © 2026 ESTATE FLOW. BUILT FOR THE MODERN ARCHITECT.
             </h6>
 
             <div className="flex items-center gap-4 order-1 md:order-2">
-              {/* Facebook */}
               <a
-                href="#"
+                href="https://www.facebook.com/"
                 className={`${circleStyle} bg-[#3b5998] hover:shadow-[0_0_20px_rgba(59,89,152,0.4)] scale-90`}
               >
                 <i className="fa-brands fa-facebook-f text-base"></i>
                 <span className={rippleEffect}></span>
               </a>
 
-              {/* X (Twitter) */}
               <a
-                href="#"
+                href="https://x.com/"
                 className={`${circleStyle} bg-black border border-zinc-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] scale-90`}
               >
                 <i className="fa-brands fa-x-twitter text-base"></i>
                 <span className={rippleEffect}></span>
               </a>
 
-              {/* LinkedIn */}
               <a
-                href="#"
+                href="https://www.linkedin.com/in/nikhil-thakur-9195282b7/"
                 className={`${circleStyle} bg-[#0077b5] hover:shadow-[0_0_20px_rgba(0,119,181,0.4)] scale-90`}
               >
                 <i className="fa-brands fa-linkedin-in text-base"></i>
                 <span className={rippleEffect}></span>
               </a>
 
-              {/* YouTube */}
               <a
-                href="#"
+                href="https://www.youtube.com/embed/VKAKbueezMk?si=h8OP3mchF_iId1pP"
                 className={`${circleStyle} bg-[#ff0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] scale-90`}
               >
                 <i className="fa-brands fa-youtube text-base"></i>
                 <span className={rippleEffect}></span>
               </a>
 
-              {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/nikhil_Thakur_Patil"
                 className={`${circleStyle} bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-[0_0_20px_rgba(238,42,123,0.4)] scale-90`}
               >
                 <i className="fa-brands fa-instagram text-base"></i>

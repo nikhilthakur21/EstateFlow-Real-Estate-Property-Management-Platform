@@ -14,9 +14,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Property from "./pages/Property";
 import Footer from "./components/Footer";
 import Flat from "./pages/Flat";
+import Contact from "./pages/Contact";
 import Admindashboard from "./components/Admin/Admin-dashboard";
 import AddFlat from "./components/Admin/AddFlat";
 import LuxuryPenthouses from "./pages/LuxuryPenthouses";
+import NewLaunches from "./pages/NewLaunches";
+
 
 const App = () => {
   return (
@@ -29,6 +32,8 @@ const App = () => {
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Flat" element={<Flat />} />
+          <Route path="/Contact" element={<Contact />} /> 
+          <Route path="/NewLaunches" element={<NewLaunches />} />
           
 
           {/* USER & ADMIN ROUTES: Only logged-in people with these roles */}

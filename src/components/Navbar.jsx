@@ -40,7 +40,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to={"/Home"}
+              to={"/Contact"}
               className="text-base text-white  flex items-center gap-1  hover:scale-105 transition-transform duration-300 hover:text-orange-500  transition-colors duration-300"
             >
               <Headset size={20} />

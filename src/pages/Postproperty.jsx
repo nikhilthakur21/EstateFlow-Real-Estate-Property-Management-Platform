@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostProperty = () => {
   const [propertyType, setPropertyType] = useState("Sell"); // Sell, Rent, PG
@@ -38,6 +39,18 @@ const PostProperty = () => {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="min-h-screen bg-slate-50 font-sans">
         <div className="max-w-7xl mx-auto px-6 py-10 lg:py-20 mt-20 md:mt-1 flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Side Div */}

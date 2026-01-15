@@ -95,7 +95,7 @@ const Flat = () => {
           {properties.map((property) => (
             <div
               key={property.id}
-              className="w-full md:w-[550px] h-[280px] bg-white border-2 border-slate-200 rounded-2xl p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:border-[#D4AF37] hover:shadow-[0_10px_40px_-10px_rgba(212,175,55,0.3)] group"
+              className="w-full md:w-[550px] h-[280px] bg-white border-2 border-slate-200 rounded-2xl p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:border-orange-500 hover:shadow-[0_10px_40px_-10px_rgba(212,175,55,0.3)] group"
             >
               <div className="flex gap-4 h-full">
                 <div className="relative w-[42%] h-full rounded-xl overflow-hidden bg-slate-100">
@@ -136,7 +136,7 @@ const Flat = () => {
                       </p>
                     </div>
                     <span className="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-1 rounded uppercase flex-shrink-0">
-                      New Booking
+                      New 
                     </span>
                   </div>
 

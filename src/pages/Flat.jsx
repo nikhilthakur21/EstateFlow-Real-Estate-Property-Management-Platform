@@ -1,202 +1,251 @@
-import React, { useEffect, useState } from "react";
-import { Heart, Smartphone, Download, CheckCircle, Boxes } from "lucide-react";
+import React, { useEffect, useState, useMemo } from "react";
+import {
+  Search,
+  X,
+  ChevronUp,
+  ChevronDown,
+  RotateCcw,
+  MapPin,
+  Calendar,
+  IndianRupee,
+  Home
+} from "lucide-react";
 import axios from "axios";
 import FluidSkeleton from "../components/FluidSkeleton";
 
 const Flat = () => {
+
+
+  /* -------------------------------------------------------------------------- */
+ 
+  const [allProperties, setAllProperties] = useState([]);
   const [loading, setLoading] = useState(true);
-  // For Loding Effect
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("default");
 
-  const [properties, setproperties] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const res = await axios.get(
-        "https://6960932fe7aa517cb79669e1.mockapi.io/FlatData"
-      );
-
-      console.log(res);
-      setproperties(res.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setTimeout(() => setLoading(false), 400);
-    }
-  };
-
+  /* ------------------------------ FETCH DATA  -------------------------------------------- */
+                                                                 
+ 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://6960932fe7aa517cb79669e1.mockapi.io/FlatData"
+        );
+
+        const data = Array.isArray(res.data) ? res.data : [];
+        setAllProperties(data);
+      } catch (err) {
+        console.error("API Error:", err);
+        setAllProperties([]);
+      } finally {
+        setTimeout(() => setLoading(false), 600);
+      }
+    };
+
     fetchData();
   }, []);
 
-  return (
-    <>
-      <section className=" Flat  ">
-        <div className=" mt-[70px] pt-5  ">
-          <h2 className="text-[#0D2441] text-2xl font-bold  md:ms-14 ms-2  ">
-            | Flats in Pune West for Sale
-          </h2>
+  /* ----------------------------------    PRICE PARSING     ---------------------------------------- */
+                                                     
+ 
+  const parsePrice = (price) => {
+    if (!price) return 0;
 
-          <div
-            className="max-w-6xl mx-auto bg-white border-2 border-slate-300 px-6 py-10 mt-8
-                     transition-colors rounded-2xl duration-300 shadow-sm"
-          >
-            <div className="Option mx-auto bg-gray-900 w-full gap-5 border-slate-300 py-1 flex flex-col md:flex-row items-center justify-center   md:p-0.3 transition-colors rounded-3xl md:rounded-full duration-300 shadow-sm ">
-              <button
-                className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
-                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
-              >
-                NEW LAUNCH{" "}
-                <span>
-                  <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </span>
-              </button>
-              <button
-                className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
-                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out "
-              >
-                Price Low to High{" "}
-                <span>
-                  <i class="fa-solid fa-angles-up"></i>
-                </span>
-              </button>
-              <button
-                className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
-                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
-              >
-                Price High to Low{" "}
-                <span>
-                  <i class="fa-solid fa-angles-down"></i>
-                </span>
-              </button>
-              <button
-                className="bg-slate-50 text-slate-600 px-10 py-0.3 hover:border-orange-100 cursor-pointer 
-                            rounded-full border border-slate-100 hover:scale-[1.03] transition-all duration-300 ease-in-out"
-              >
-                Under construction
-                <span>
-                  <i class="fa-solid fa-brush"></i>{" "}
-                </span>
-              </button>
-            </div>
+    const value = String(price).replace(/[^0-9.]/g, "");
+    const num = parseFloat(value);
+
+    if (isNaN(num)) return 0;
+
+    const lower = String(price).toLowerCase();
+
+    if (lower.includes("cr")) return num * 100; // Cr → Lakh
+    return num; // Lakh
+  };
+
+  const formatPrice = (price) => {
+    const lakh = parsePrice(price);
+
+    if (lakh >= 100) return `₹ ${(lakh / 100).toFixed(2)} Cr`;
+    return `₹ ${lakh} L`;
+  };
+
+  /* ----------------------------------   FILTER + SORT (OPTIMIZED)  ---------------------------------------- */
+
+ 
+  const displayedItems = useMemo(() => {
+    let list = [...allProperties];
+
+    // SEARCH
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter((item) =>
+        item.location?.toLowerCase().includes(q)
+      );
+    }
+
+    // SORT
+    if (sortOrder === "low-to-high") {
+      list.sort(
+        (a, b) =>
+          parsePrice(a?.pricing?.[0]?.price) -
+          parsePrice(b?.pricing?.[0]?.price)
+      );
+    }
+
+    if (sortOrder === "high-to-low") {
+      list.sort(
+        (a, b) =>
+          parsePrice(b?.pricing?.[0]?.price) -
+          parsePrice(a?.pricing?.[0]?.price)
+      );
+    }
+
+    return list;
+  }, [allProperties, searchQuery, sortOrder]);
+
+
+  return (
+    <div className="min-h-screen bg-gray-50 pt-28 pb-20 px-4 md:px-10">
+      <div className="max-w-7xl mx-auto">
+
+        
+        <div className="mb-12">
+          <h1 className="text-4xl font-black flex items-center gap-3">
+            <Home className="text-orange-500" /> Exclusive Listings
+          </h1>
+          <p className="text-gray-500 mt-2">
+            Search by location to find your dream home
+          </p>
+        </div>
+
+        
+        <div className="bg-white p-5 rounded-3xl shadow mb-10 flex flex-col lg:flex-row gap-5 sticky top-24 z-40">
+
+          {/* SEARCH */}
+          <div className="relative w-full">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search location..."
+              className="w-full pl-14 pr-12 py-4 bg-gray-50 rounded-2xl font-semibold"
+            />
+            {searchQuery && (
+              <X
+                className="absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer"
+                onClick={() => setSearchQuery("")}
+              />
+            )}
+          </div>
+
+          {/* SORT */}
+          <div className="flex bg-gray-100 p-1 rounded-2xl">
+            <button
+              onClick={() => setSortOrder("low-to-high")}
+              className={`px-5 py-3 rounded-xl text-xs font-bold ${
+                sortOrder === "low-to-high"
+                  ? "bg-orange-500 text-white"
+                  : "text-gray-500"
+              }`}
+            >
+              Price ↑
+            </button>
+
+            <button
+              onClick={() => setSortOrder("high-to-low")}
+              className={`px-5 py-3 rounded-xl text-xs font-bold ${
+                sortOrder === "high-to-low"
+                  ? "bg-orange-500 text-white"
+                  : "text-gray-500"
+              }`}
+            >
+              Price ↓
+            </button>
+
+            <button
+              onClick={() => {
+                setSortOrder("default");
+                setSearchQuery("");
+              }}
+              className="px-4"
+            >
+              <RotateCcw />
+            </button>
           </div>
         </div>
 
-        {/*************************************************************************************************************/}
+        {/* COUNT */}
+        <p className="text-xs text-gray-400 mb-6">
+          {displayedItems.length} Properties Found
+        </p>
 
-        <div className="max-w-[1200px] mx-auto  px-4 py-10">
-          {loading ? (
-            <FluidSkeleton />
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 justify-items-center w-full">
-              {properties.map((property) => (
+       
+        {loading ? (
+          <FluidSkeleton />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {displayedItems.length ? (
+              displayedItems.map((item, index) => (
                 <div
-                  key={property.id}
-                  className="w-full md:w-[550px] h-[280px] bg-white border-2 border-slate-200 rounded-2xl p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:border-orange-500 hover:shadow-[0_10px_40px_-10px_rgba(212,175,55,0.3)] group"
+                  key={`${item.id}-${index}`}   // FIXED UNIQUE KEY 
+                  className="bg-white rounded-3xl overflow-hidden shadow hover:shadow-xl transition flex flex-col sm:flex-row"
                 >
-                  <div className="flex gap-4 h-full">
-                    <div className="relative w-[42%] h-full rounded-xl overflow-hidden bg-slate-100">
-                      <img
-                        src={property.image}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        alt={property.title}
-                      />
+                 
+                  <div className="w-full sm:w-56 h-56">
+                    <img
+                      src={item.image || "https://via.placeholder.com/400"}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
 
-                      <div className="absolute top-2 left-2">
-                        <span className="bg-[#121212]/80 text-white text-[10px] px-2 py-1 rounded font-bold tracking-tight backdrop-blur-sm">
-                          ZERO BROKERAGE
-                        </span>
-                      </div>
-
-                      <div className="absolute top-2 right-2 text-white hover:text-red-500 transition-colors">
-                        <Heart size={20} className="drop-shadow-md" />
-                      </div>
-
-                      <div className="absolute bottom-0 w-full bg-[#121212]/70 text-white text-[10px] py-2 px-3 backdrop-blur-md font-medium">
-                        Under Construction • {property.completionDate}
-                      </div>
+                
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <p className="text-xs text-orange-500 font-bold flex gap-1">
+                        <MapPin size={12} /> {item.location}
+                      </p>
+                      <h3 className="text-xl font-black">{item.title}</h3>
                     </div>
 
-                    {/* Right Side  */}
-                    <div className="w-[58%] flex flex-col py-1">
-                      <div className="flex justify-between items-start gap-2">
-                        <div className="flex-1">
-                          <h2 className="text-[20px] font-bold text-[#121212] leading-tight group-hover:text-[#D4AF37] transition-colors truncate">
-                            {property.title}
-                          </h2>
-                          <p className="text-sm text-slate-500 font-medium mt-0.5">
-                            Flats in{" "}
-                            <span className="text-blue-600 font-semibold">
-                              {property.location}
-                            </span>
-                          </p>
-                        </div>
-                        <span className="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-1 rounded uppercase flex-shrink-0">
-                          New
-                        </span>
-                      </div>
-
-                      {/* Pricing Section */}
-                      <div className="flex mt-4 border-b border-slate-100 pb-3">
-                        {property.pricing.map((item, index) => (
-                          <div
-                            key={index}
-                            className={`flex-1 ${
-                              index > 0 ? "border-l border-slate-100 pl-4" : ""
-                            }`}
-                          >
-                            <p className="text-[10px] text-slate-400 uppercase font-bold tracking-tight mb-0.5">
-                              {item.type}
-                            </p>
-                            <p className="text-lg font-extrabold text-[#121212] leading-none">
-                              {item.price}
+                  
+                    <div className="flex gap-6 py-4 border-y">
+                      {Array.isArray(item.pricing) &&
+                        item.pricing.slice(0, 2).map((p, i) => (
+                          <div key={`${item.id}-price-${i}`}>
+                            <p className="text-xs text-gray-400">{p.type}</p>
+                            <p className="font-black">
+                              <IndianRupee size={14} className="inline" />
+                              {formatPrice(p.price)}
                             </p>
                           </div>
                         ))}
-                      </div>
+                    </div>
 
-                      <div className="mt-3 flex flex-col gap-1.5">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold text-slate-400 uppercase whitespace-nowrap">
-                            Nearby:
-                          </span>
-                          <div className="flex gap-1 overflow-hidden">
-                            {property.nearby.map((place, idx) => (
-                              <span
-                                key={idx}
-                                className="bg-slate-50 text-slate-600 text-[10px] px-2 py-0.5 rounded-full border border-slate-100 whitespace-nowrap"
-                              >
-                                {place}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] font-bold text-slate-400 uppercase">
-                            Property ID:
-                          </span>
-                          <span className="text-[10px] font-bold text-[#D4AF37]">
-                            {property.pointId}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="mt-auto flex gap-2">
-                        <button className="flex-[1.2] flex items-center justify-center gap-2 bg-[#121212] text-white rounded-lg py-2 text-xs font-bold hover:bg-black shadow-lg transition-all">
-                          View Number
-                        </button>
-                      </div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-xs text-gray-400 flex gap-1">
+                        <Calendar size={14} />
+                        {item.completionDate}
+                      </p>
+                      <button className="bg-gray-900 text-white px-5 py-2 rounded-xl text-xs font-bold hover:bg-orange-500">
+                        BOOK TOUR
+                      </button>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-20 bg-white rounded-3xl">
+                <Search size={40} className="mx-auto text-gray-300" />
+                <h3 className="text-xl font-black mt-4">No Properties Found</h3>
+                <p className="text-gray-500">Try another location</p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

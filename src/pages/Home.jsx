@@ -206,7 +206,7 @@ const Home = () => {
                     <div
                       className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white 
                                     hover:bg-orange-500 transition-all cursor-pointer shadow-lg shadow-black/20"
-                      onClick={() => navigate("/Postproperty")}
+                      onClick={() => navigate("/NewLaunches")}
                     >
                       <ArrowRight size={18} />
                     </div>
@@ -220,7 +220,7 @@ const Home = () => {
             <button
               className="flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold 
             hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-200 transition-all duration-300 group"
-              onClick={() => navigate("/Postproperty")}
+              onClick={() => navigate("/NewLaunches")}
             >
               Explore All Properties
               <Sparkles

@@ -74,7 +74,7 @@ const Navbar = () => {
                       onClick={() => setIsOpen(false)}
                     ></div>
 
-                    <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-3 ring-black ring-opacity-5 z-20">
+                    <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-3 ring-black ring-opacity-5 z-20"  data-aos="zoom-in-left">
                       <NavLink
                         to="/Flat"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

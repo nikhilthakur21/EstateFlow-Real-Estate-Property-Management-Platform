@@ -109,7 +109,8 @@ const Property = () => {
 
   return (
     <>
-      <section className="mt-5 px-4">
+      <section className="mt-5 px-4" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
         <hr className="text-gray-100" />
         <div className="flex w-full  h-[80vh] overflow-hidden mt-4">
           {/* 70% SCROLLABLE SIDE */}
@@ -278,7 +279,7 @@ const Property = () => {
           {/* 30% SIDEBAR - The 'hidden' class removes the entire element from the DOM flow */}
           <div className="hidden md:flex md:w-[30%] h-full bg-gray-50 rounded-lg p-4 flex-col ms-2">
             <div className="sticky top-0">
-              <div className="w-full max-w-[350px] h-[200px] bg-[#120d1d] rounded-[24px] p-5 shadow-2xl border border-white/10 flex flex-col justify-between overflow-hidden group">
+              <div className="w-full max-w-[350px] h-[200px] bg-[#120d1d] rounded-[24px] p-5 shadow-2xl border border-white/10 flex flex-col justify-between overflow-hidden group" data-aos="fade-left">
                 <div className="flex justify-between items-center">
                   <h3 className="text-white text-sm font-black tracking-widest uppercase opacity-80">
                     Why Pune<span className="text-[#b0169b]">?</span>
@@ -316,7 +317,7 @@ const Property = () => {
               </div>
             </div>
 
-            <div className="relative w-full rounded-xl border border-gray-100 bg-gradient-to-br from-[#f8fdfb] via-[#f8fdfb] to-[#d6ede4] p-5 mt-8 shadow-sm">
+            <div className="relative w-full rounded-xl border border-gray-100 bg-gradient-to-br from-[#f8fdfb] via-[#f8fdfb] to-[#d6ede4] p-5 mt-8 shadow-sm" data-aos="fade-left">
               <div className="mb-6">
                 <h2 className="text-xl font-bold leading-tight text-[#1a2e44]">
                   Sell or rent faster at <br /> the right price!

@@ -57,10 +57,10 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4   mt-[75px] lg:p-0 mb-10">
+      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4   mt-[75px] lg:p-0 mb-10"data-aos="fade-left">
         <div className="flex w-full max-w-6xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[750px]">
           {/* LEFT SIDE */}
-          <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] p-12 flex-col justify-between overflow-hidden">
+          <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] p-12 flex-col justify-between overflow-hidden" >
             <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px]"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
 

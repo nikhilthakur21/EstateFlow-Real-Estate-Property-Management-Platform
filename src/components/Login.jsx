@@ -72,7 +72,7 @@ const Login = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 lg:p-0 mt-[72px] mb-10">
+      <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 lg:p-0 mt-[72px] mb-10"data-aos="fade-right">
         <div className="flex w-full max-w-6xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[600px]">
           {/* LEFT SIDE */}
           <div className="hidden lg:flex lg:w-1/2 relative bg-[#121212] p-12 flex-col justify-between">
@@ -108,6 +108,7 @@ const Login = () => {
           </div>
 
           {/* RIGHT SIDE */}
+          
           <div className="w-full lg:w-1/2 flex items-center justify-center  lg:p-16">
             <div className="w-full max-w-md  md:mt-[-70px]">
               <div className=" bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">

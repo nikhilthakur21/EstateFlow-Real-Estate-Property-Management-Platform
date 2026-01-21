@@ -135,7 +135,12 @@ const LuxuryPenthouses = () => {
       <ToastContainer />
 
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-12">
+      <div
+        className="max-w-7xl mx-auto mb-12"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
         <h1 className="text-4xl font-black text-white tracking-tight uppercase">
           Elite <span className="text-amber-500">Penthouses</span>
         </h1>

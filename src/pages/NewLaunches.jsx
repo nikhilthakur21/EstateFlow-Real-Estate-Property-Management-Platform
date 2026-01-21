@@ -84,7 +84,11 @@ const NewLaunches = () => {
     <section className="py-24 px-6 bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-          <div>
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+          >
             <div className="flex items-center gap-2 mb-2">
               <span className="w-8 h-[2px] bg-orange-500"></span>
               <span className="text-orange-500 font-bold text-xs uppercase tracking-[0.2em]">

@@ -8,29 +8,26 @@ import {
   MapPin,
   Calendar,
   IndianRupee,
-  Home
+  Home,
 } from "lucide-react";
 import axios from "axios";
 import FluidSkeleton from "../components/FluidSkeleton";
 
 const Flat = () => {
-
-
   /* -------------------------------------------------------------------------- */
- 
+
   const [allProperties, setAllProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("default");
 
   /* ------------------------------ FETCH DATA  -------------------------------------------- */
-                                                                 
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://6960932fe7aa517cb79669e1.mockapi.io/FlatData"
+          "https://6960932fe7aa517cb79669e1.mockapi.io/FlatData",
         );
 
         const data = Array.isArray(res.data) ? res.data : [];
@@ -47,8 +44,7 @@ const Flat = () => {
   }, []);
 
   /* ----------------------------------    PRICE PARSING     ---------------------------------------- */
-                                                     
- 
+
   const parsePrice = (price) => {
     if (!price) return 0;
 
@@ -72,16 +68,13 @@ const Flat = () => {
 
   /* ----------------------------------   FILTER + SORT (OPTIMIZED)  ---------------------------------------- */
 
- 
   const displayedItems = useMemo(() => {
     let list = [...allProperties];
 
     // SEARCH
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
-      list = list.filter((item) =>
-        item.location?.toLowerCase().includes(q)
-      );
+      list = list.filter((item) => item.location?.toLowerCase().includes(q));
     }
 
     // SORT
@@ -89,7 +82,7 @@ const Flat = () => {
       list.sort(
         (a, b) =>
           parsePrice(a?.pricing?.[0]?.price) -
-          parsePrice(b?.pricing?.[0]?.price)
+          parsePrice(b?.pricing?.[0]?.price),
       );
     }
 
@@ -97,20 +90,22 @@ const Flat = () => {
       list.sort(
         (a, b) =>
           parsePrice(b?.pricing?.[0]?.price) -
-          parsePrice(a?.pricing?.[0]?.price)
+          parsePrice(a?.pricing?.[0]?.price),
       );
     }
 
     return list;
   }, [allProperties, searchQuery, sortOrder]);
 
-
   return (
     <div className="min-h-screen bg-gray-50 pt-28 pb-20 px-4 md:px-10">
       <div className="max-w-7xl mx-auto">
-
-        
-        <div className="mb-12">
+        <div
+          className="mb-12"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
           <h1 className="text-4xl font-black flex items-center gap-3">
             <Home className="text-orange-500" /> Exclusive Listings
           </h1>
@@ -119,9 +114,7 @@ const Flat = () => {
           </p>
         </div>
 
-        
         <div className="bg-white p-5 rounded-3xl shadow mb-10 flex flex-col lg:flex-row gap-5 sticky top-24 z-40">
-
           {/* SEARCH */}
           <div className="relative w-full">
             <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
@@ -180,7 +173,6 @@ const Flat = () => {
           {displayedItems.length} Properties Found
         </p>
 
-       
         {loading ? (
           <FluidSkeleton />
         ) : (
@@ -188,10 +180,9 @@ const Flat = () => {
             {displayedItems.length ? (
               displayedItems.map((item, index) => (
                 <div
-                  key={`${item.id}-${index}`}   // FIXED UNIQUE KEY 
+                  key={`${item.id}-${index}`} // FIXED UNIQUE KEY
                   className="bg-white rounded-3xl overflow-hidden shadow hover:shadow-xl transition flex flex-col sm:flex-row"
                 >
-                 
                   <div className="w-full sm:w-56 h-56">
                     <img
                       src={item.image || "https://via.placeholder.com/400"}
@@ -200,7 +191,6 @@ const Flat = () => {
                     />
                   </div>
 
-                
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
                       <p className="text-xs text-orange-500 font-bold flex gap-1">
@@ -209,7 +199,6 @@ const Flat = () => {
                       <h3 className="text-xl font-black">{item.title}</h3>
                     </div>
 
-                  
                     <div className="flex gap-6 py-4 border-y">
                       {Array.isArray(item.pricing) &&
                         item.pricing.slice(0, 2).map((p, i) => (

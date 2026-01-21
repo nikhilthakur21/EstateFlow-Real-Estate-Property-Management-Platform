@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 
 const UpcomingProjects = () => {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-white py-20 px-6" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="space-y-4">

@@ -15,7 +15,7 @@ const Contact = () => {
     "absolute inset-0 rounded-full bg-white opacity-0 animate-ping group-hover:opacity-20";
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 mt-[75px] lg:p-0">
+    <section className="min-h-screen flex items-center justify-center bg-slate-50 p-4 mt-[75px] lg:p-0"data-aos="fade-right">
       <div className="flex w-full max-w-6xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[500px]">
         {/* LEFT SIDE */}
         <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] p-12 flex-col justify-between overflow-hidden">

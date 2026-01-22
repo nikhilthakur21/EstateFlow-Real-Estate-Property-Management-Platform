@@ -10,6 +10,8 @@ import {
   Layers,
   Sparkles,
 } from "lucide-react";
+import Facilities from "./Facilities";
+import UpcomingServices from "./UpcomingServices";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -75,17 +77,17 @@ const Home = () => {
 
   return (
     <>
-      <header >
-        <div 
+      <header>
+        <div
           className="w-full border-b border-gray-300 shadow-lg bg-cover bg-center bg-no-repeat mt-[70px]
              aspect-video md:aspect-[21/9] lg:aspect-[4/1]  "
           style={{ backgroundImage: `url(${bgImage})` }}
         ></div>
 
-        <div data-aos="zoom-in"
+        <div
+          data-aos="zoom-in"
           className="max-w-4xl  w-full mx-auto border border-gray-300 rounded-2xl shadow-lg flex-wrap
                         flex items-center justify-center gap-6 md:gap-3 px-6 py-10 bg-white -mt-13"
-                        
         >
           <NavLink
             to={"/LuxuryPenthouses"}
@@ -130,8 +132,11 @@ const Home = () => {
 
       {/************************************NEW LAUNCHED*******************************************/}
 
-      <section className="py-10 mt-10 px-6 bg-[#f8fafc] " data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+      <section
+        className="py-10 mt-10 px-6 bg-[#f8fafc] "
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
         <div className="max-w-7xl mx-auto ">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
@@ -238,8 +243,11 @@ const Home = () => {
 
       <hr className="text-gray-200 mt-5" />
 
-      <section className="w-full py-12 px-6" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+      <section
+        className="w-full py-12 px-6"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
         <div className="max-w-7xl mx-auto p-5 rounded-lg bg-[#FFF8E7] ">
           {/* Header Area */}
           <div className="flex items-center gap-5 mb-10">
@@ -286,8 +294,11 @@ const Home = () => {
       <hr className="text-gray-200 mt-5" />
 
       <section>
-        <div className="w-full bg-[#FFFFFF] p-8" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+        <div
+          className="w-full bg-[#FFFFFF] p-8"
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+        >
           <div className="mb-8">
             <h2 className="text-[#091e42] text-2xl font-bold mb-1 tracking-tight">
               Pune Property Snapshot
@@ -362,6 +373,10 @@ const Home = () => {
       {/*********************************************************************************************/}
       <UpcomingProjects />
       {/*********************************************************************************************/}
+      <hr className="text-gray-200 mt-5" />
+      <Facilities />
+      {/*********************************************************************************************/}
+      <UpcomingServices/>
     </>
   );
 };

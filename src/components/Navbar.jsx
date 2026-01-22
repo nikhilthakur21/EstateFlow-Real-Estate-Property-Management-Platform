@@ -22,7 +22,7 @@ const Navbar = () => {
           style={{ backgroundColor: "#121212", height: "70px" }}
         >
           <div className=" w-[400px] flex items-center p-4">
-            <img src={logo} alt="" className="w-[180px] " />
+            <img src={logo} alt="" className="w-[180px] " /> 
           </div>
 
           <div className=" w-[10%] flex items-center gap-10 justify-end"></div>

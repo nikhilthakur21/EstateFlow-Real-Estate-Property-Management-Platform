@@ -1,4 +1,5 @@
 import React from "react";
+import PropertyEnquiryForm from "./PropertyEnquiryForm";
 
 const UpcomingServices = () => {
   const marqueeStyle = `
@@ -92,6 +93,7 @@ const UpcomingServices = () => {
           </div>
         </div>
       </div>
+      <PropertyEnquiryForm/>
     </section>
   );
 };

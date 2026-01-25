@@ -6,6 +6,7 @@ import AddFeaturedProjects from "./AddFeaturedProjects";
 import ViewUsers from "./ViewUsers";
 import ViewFlat from "./ViewFlat";
 import ViewPostedProperty from "./ViewPostedProperty";
+import ViewInquiries from "./ViewInquiries";
 
 const Admindashboard = () => {
   // For Seting Active Tab
@@ -33,21 +34,22 @@ const Admindashboard = () => {
               <ul className="space-y-2">
                 <li>
                   <button
-                    onClick={() => setActiveTab("addFlat")}
+                    onClick={() => setActiveTab("ViewInquiries")}
                     className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 ${
-                      activeTab === "addFlat"
+                      activeTab === "ViewInquiries"
                         ? "bg-zinc-800 text-white shadow-md border border-zinc-700"
                         : "text-zinc-500 hover:bg-zinc-800/40 hover:text-zinc-200"
                     }`}
                   >
                     <i
-                      className={`fa-solid fa-bed  text-lg ${
-                        activeTab === "addFlat" ? "text-orange-500" : ""
+                      className={`fa-solid fa-clipboard-question text-lg ${
+                        activeTab === "ViewInquiries" ? "text-orange-500" : ""
                       }`}
                     ></i>
-                    <span className="font-medium">Add Flat</span>
+                    <span className="font-medium">View Inquiries</span>
                   </button>
                 </li>
+
                 <li>
                   <button
                     onClick={() => setActiveTab("ViewFlat")}
@@ -63,6 +65,24 @@ const Admindashboard = () => {
                       }`}
                     ></i>
                     <span className="font-medium">View Flat</span>
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    onClick={() => setActiveTab("addFlat")}
+                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 ${
+                      activeTab === "addFlat"
+                        ? "bg-zinc-800 text-white shadow-md border border-zinc-700"
+                        : "text-zinc-500 hover:bg-zinc-800/40 hover:text-zinc-200"
+                    }`}
+                  >
+                    <i
+                      className={`fa-solid fa-bed  text-lg ${
+                        activeTab === "addFlat" ? "text-orange-500" : ""
+                      }`}
+                    ></i>
+                    <span className="font-medium">Add Flat</span>
                   </button>
                 </li>
 
@@ -137,6 +157,7 @@ const Admindashboard = () => {
                 {activeTab === "ViewUsers" && <ViewUsers />}
                 {activeTab === "ViewFlat" && <ViewFlat />}
                 {activeTab === "ViewPostedProperty" && <ViewPostedProperty />}
+                {activeTab === "ViewInquiries" && <ViewInquiries />}
               </div>
             </div>
           </div>

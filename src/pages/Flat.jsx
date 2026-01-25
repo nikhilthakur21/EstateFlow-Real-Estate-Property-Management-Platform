@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   Search,
   X,
@@ -14,6 +16,9 @@ import axios from "axios";
 import FluidSkeleton from "../components/FluidSkeleton";
 
 const Flat = () => {
+
+   const navigate = useNavigate(); 
+
   /* -------------------------------------------------------------------------- */
 
   const [allProperties, setAllProperties] = useState([]);
@@ -217,7 +222,7 @@ const Flat = () => {
                         <Calendar size={14} />
                         {item.completionDate}
                       </p>
-                      <button className="bg-gray-900 text-white px-5 py-2 rounded-xl text-xs font-bold hover:bg-orange-500">
+                      <button className="bg-gray-900 text-white px-5 py-2 rounded-xl text-xs font-bold hover:bg-orange-500" onClick={() => navigate("/PropertyEnquiryForm")}>
                         BOOK TOUR
                       </button>
                     </div>

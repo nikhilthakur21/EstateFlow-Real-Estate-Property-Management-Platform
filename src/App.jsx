@@ -21,6 +21,7 @@ import Home from "./pages/Home";
 
 import Admindashboard from "./components/Admin/Admin-dashboard";
 import AddFlat from "./components/Admin/AddFlat";
+import PropertyEnquiryForm from "./pages/PropertyEnquiryForm";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/Postproperty" element={<Postproperty />} />
             <Route path="/LuxuryPenthouses" element={<LuxuryPenthouses />} />
             <Route path="/NewLaunches" element={<NewLaunches />} />
+            <Route path="/PropertyEnquiryForm" element={<PropertyEnquiryForm/>}/>
             <Route path="/Flat" element={<Flat />} />
           </Route>
 

@@ -1,16 +1,145 @@
-# React + Vite
+# 🏠 EstateFlow – Smart Property Listing & Rental Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EstateFlow is a modern, Pune-focused real estate web application designed to simplify property discovery, listing, and management.  
+It connects buyers, renters, agents, and admins on a single, secure, and user-friendly platform.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Project Overview
 
-## React Compiler
+Finding the right property in Pune is often time-consuming due to:
+- Fake or outdated listings  
+- Poor mobile experience  
+- Scattered platforms for rent and buy  
+- Manual work for agents  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+EstateFlow solves these problems with verified listings, smart filters, role-based dashboards, and a clean responsive UI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Real-World Problems Solved
+
+| Problem | EstateFlow Solution |
+|------|--------------------|
+| No Pune-focused real estate platform | Dedicated Pune property listings |
+| Hard to find rentals quickly | Advanced filters + search |
+| Fake / outdated listings | Admin approval system |
+| Agents manage listings manually | Agent dashboard |
+| Users miss good properties | Save favorites |
+| Poor mobile experience | Fully responsive UI |
+
+---
+
+## 👥 User Roles & Features
+
+### 👤 Visitor (No Login Required)
+- View property listings  
+- Search by location and price  
+- View property details  
+- Contact agent  
+
+---
+
+### 👤 Registered User
+- User authentication (Login / Signup)  
+- Save favorite properties  
+- View saved listings  
+- Contact agents directly  
+- Personalized experience  
+
+---
+
+### 🧑‍💼 Agent
+- Agent registration & login  
+- Add new property listings  
+- Manage own properties  
+- Update pricing and details  
+- Track listing status (Pending / Approved)  
+
+---
+
+### 🛡️ Admin
+- Admin dashboard  
+- Approve or reject property listings  
+- Manage users and agents  
+- Remove fake or duplicate listings  
+- Platform moderation  
+
+---
+
+## 🔍 Core Features
+
+- Smart search and filters  
+- Location-based property browsing  
+- Price sorting (Low → High / High → Low)  
+- Favorites and saved listings  
+- Mobile-first responsive design  
+- Secure role-based access  
+- Optimized performance using React hooks  
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js  
+- Tailwind CSS  
+- React Hooks (useState, useEffect, useMemo)  
+- React Router DOM  
+
+### Backend (Planned)
+- Node.js  
+- Express.js  
+- MongoDB  
+- JWT Authentication  
+
+### Deployment
+- Vercel (Frontend)  
+- GitHub (Version Control)  
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/EstateFlow.git
+
+# Navigate to project folder
+cd EstateFlow
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+
+---
+
+🔮 Future Enhancements
+
+Google Maps integration
+
+Payment system for premium listings
+
+Chat between user and agent
+
+Property recommendation system
+
+Admin analytics dashboard
+
+Mobile app version
+
+---
+
+🧠 Learning Outcomes
+
+Real-world React project architecture
+
+State and performance optimization
+
+Role-based UI rendering
+
+Clean UI/UX practices
+
+Scalable frontend structure

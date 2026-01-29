@@ -6,7 +6,8 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     // This immediately moves the window to the top (0,0)
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
   }, [pathname]); // This effect runs every time the URL path changes
 
   return null;

@@ -1,10 +1,10 @@
 import { Mail, Lock, EyeOff, LogIn } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../assets/NLogo.png";
 import axios from "axios";
-import { Building2, CheckCircle2, ShieldCheck } from "lucide-react";
+
 
 const Login = () => {
   const navigate = useNavigate();

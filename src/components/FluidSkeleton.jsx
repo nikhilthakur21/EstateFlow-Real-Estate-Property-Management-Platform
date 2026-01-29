@@ -1,9 +1,9 @@
-import React from "react";
+// Loder For Every Page 
 
 const FluidSkeleton = () => {
   return (
     <div className="relative overflow-hidden w-full bg-zinc-950  rounded-2xl p-1 mb-4 group">
-      {/* 1. Unique Architectural Grid Background */}
+      
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -12,12 +12,12 @@ const FluidSkeleton = () => {
         }}
       ></div>
 
-      {/* 2. The "Scanning Beam" (Unique Animation) */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="h-full w-20 bg-orange-500/10 blur-[40px] -skew-x-12 animate-scan"></div>
       </div>
 
-      {/* 3. The Main Card Body */}
+     
       <div className="relative bg-zinc-900/80 backdrop-blur-sm rounded-[14px] px-6 py-5 flex flex-wrap items-center gap-6">
         <div className="relative h-12 w-12 flex-shrink-0">
           <div className="absolute inset-0 bg-zinc-800 rotate-45 rounded-sm animate-pulse"></div>
@@ -27,13 +27,13 @@ const FluidSkeleton = () => {
         </div>
 
         <div className="flex-1 space-y-3">
-          {/* Top Row: Title/Name */}
+          
           <div className="flex items-center gap-3">
             <div className="h-2 w-2 bg-orange-500/40 rounded-full animate-ping"></div>
             <div className="h-4 w-1/3 bg-zinc-800 rounded-full"></div>
           </div>
 
-          {/* Bottom Row: Subtitles */}
+          
           <div className="flex gap-4 items-center">
             <div className="h-3 w-24 bg-zinc-800/50 rounded-md"></div>
             <div className="h-3 w-3 bg-zinc-800 rounded-full"></div>

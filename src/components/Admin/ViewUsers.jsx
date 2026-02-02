@@ -19,7 +19,7 @@ const ViewUsers = () => {
       const res = await axios.get(
         "https://6960932fe7aa517cb79669e1.mockapi.io/LoginData"
       );
-      console.log(res.data);
+      //console.log(res.data);
       setuser(res.data);
     } catch (err) {
       console.log(err);

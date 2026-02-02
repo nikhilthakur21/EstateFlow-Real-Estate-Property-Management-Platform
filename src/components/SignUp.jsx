@@ -27,7 +27,7 @@ const SignUp = () => {
   const subHandler = async (e) => {
     try {
       e.preventDefault();
-      console.log(login);
+      //console.log(login);
       await axios.post(
         "https://6960932fe7aa517cb79669e1.mockapi.io/LoginData",
         login

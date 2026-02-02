@@ -15,7 +15,7 @@ const Login = () => {
       const loginData = await axios.get(
         "https://6960932fe7aa517cb79669e1.mockapi.io/LoginData"
       );
-      console.log(loginData.data);
+      //console.log(loginData.data);
       setdata(loginData.data);
     } catch (err) {
       console.log("Not Fetched");
@@ -36,7 +36,7 @@ const Login = () => {
     setePass({ ...ePass, [e.target.name]: e.target.value });
   };
 
-  console.log(ePass);
+ // console.log(ePass);
 
   // ---------------------------------------------------------------------------------------------------------
 
